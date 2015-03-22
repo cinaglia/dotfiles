@@ -1,0 +1,14 @@
+[ui]
+username = Victor Cinaglia <victorcinaglia@gmail.com>
+ssh = ssh -C
+ignore = ~/.hgignore
+editor = vim
+merge = internal:merge
+
+[extensions]
+color =
+fetch =
+
+[pager]
+pager = LESS='FSRX' less
+attend = cat, diff, glog, log, incoming, outgoing, lg, show, lga

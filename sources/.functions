@@ -1,0 +1,84 @@
+# Output ssh key
+sshkey() {
+    cat ~/.ssh/id_rsa.pub;
+}
+
+# find shorthand
+function f() {
+    find . -name "$1"
+}
+
+# confirm before running a command
+# http://askubuntu.com/questions/22233/always-prompt-the-user-before-executing-a-command-in-the-shell
+confirm() {
+    echo -n "Do you want to run $*? [N/y] "
+    read -n 1 REPLY
+    echo
+    if test "$REPLY" = "y" -o "$REPLY" = "Y"; then
+        "$@"
+    else
+        echo "Cancelled by user"
+    fi
+}
+
+# remove files recursively
+# use with caution
+function remove_recursively() {
+    find . -name "$1" -print0 | xargs -0 rm -rf
+}
+
+# Create a new directory and enter it
+function md() {
+    mkdir -p "$@" && cd "$@"
+}
+
+# Create a new directory and enter it
+function serve() {
+    python -m SimpleHTTPServer "$1"
+}
+
+# lets toss an image onto my server and pbcopy that bitch.
+function scpp() {
+    scp "$1" $SCP_SERVER:$SCP_SHARED_PATH;
+    echo "$SCP_SHARED_URL$1" | pbcopy;
+    echo "Copied to clipboard: $SCP_SHARED_URL$1"
+}
+
+# Replace tmux window title
+# @see http://superuser.com/questions/249293/rename-tmux-window-name-to-prompt-command-ps1-or-remote-ssh-hostname
+settitle() {
+	  printf "\033k$1\033\\"
+}
+
+# Override ssh command, set tmux title
+ssh() {
+    settitle "$*"
+    command ssh "$@"
+    settitle "bash"
+}
+
+# SSH Tunnel
+sshtunnel() {
+	  ssh -D 9333 -C -N -v "${1:cinaglia.com}" 
+}
+
+# Toggle visibility of file
+tv() {
+	file=$1;
+	if [ ${file:0:1} == "." ]; then
+		file=${file:1}
+  else
+		file=".$file"
+	fi
+	mv $1 $file
+}
+
+# Kill process by name
+kp() {
+	if [ -z "$1" ]; then
+		echo "usage: kp main.py"
+		return
+	fi
+
+	kill $(ps aux | grep $1 | grep -v 'grep' | head -n 1 | cut -d \  -f 2)
+}
