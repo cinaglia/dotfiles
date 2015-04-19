@@ -11,7 +11,7 @@ pkgs=(
   node
   git
   git-flow
-  mercurial
+  mercurial 
   reattach-to-user-namespace
   tmux
   tree
@@ -23,7 +23,6 @@ pkgs=(
   the_silver_searcher
   ssh-copy-id
   pyenv-virtualenv
-  pygmentize
   vcprompt
   caskroom/cask/brew-cask
   httpie
@@ -32,5 +31,5 @@ pkgs=(
 # Install all brew packages
 for pkg in "${pkgs[@]}"
 do
-  [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
+  [ ! -d /usr/local/Cellar/$(basename $pkg) ] && brew install $pkg
 done

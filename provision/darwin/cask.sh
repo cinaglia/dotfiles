@@ -1,5 +1,5 @@
 # Setup taps
-brew tap caskroom/versions
+brew tap | grep -q 'caskroom/versions' || brew tap caskroom/versions
 
 casks=(
   # (Un)Productivity
