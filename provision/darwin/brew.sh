@@ -21,12 +21,12 @@ pkgs=(
   bash-completion
   jq
   the_silver_searcher
-  grep
   ssh-copy-id
   pyenv-virtualenv
   pygmentize
   vcprompt
   caskroom/cask/brew-cask
+  httpie
 )
 
 # Install all brew packages
