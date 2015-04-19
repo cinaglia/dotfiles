@@ -8,19 +8,6 @@ function f() {
     find . -name "$1"
 }
 
-# confirm before running a command
-# http://askubuntu.com/questions/22233/always-prompt-the-user-before-executing-a-command-in-the-shell
-confirm() {
-    echo -n "Do you want to run $*? [N/y] "
-    read -n 1 REPLY
-    echo
-    if test "$REPLY" = "y" -o "$REPLY" = "Y"; then
-        "$@"
-    else
-        echo "Cancelled by user"
-    fi
-}
-
 # remove files recursively
 # use with caution
 function remove_recursively() {
@@ -37,7 +24,7 @@ function serve() {
     python -m SimpleHTTPServer "$1"
 }
 
-# lets toss an image onto my server and pbcopy that bitch.
+# upload file to server and pbcopy its new url.
 function scpp() {
     scp "$1" $SCP_SERVER:$SCP_SHARED_PATH;
     echo "$SCP_SHARED_URL$1" | pbcopy;

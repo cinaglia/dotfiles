@@ -62,7 +62,6 @@ alias p='python'
 alias t="tmux"
 alias c="cd"
 alias l="ll"
-alias rr="confirm remove_recursively"
 
 # Edit hosts file
 alias ho="sudo $EDITOR /etc/hosts"
@@ -79,15 +78,6 @@ alias hp="hg pull -u"
 alias gp="git pull"
 alias gd="git diff"
 alias gc="git checkout"
-
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
-
-# `cat` with beautiful colors. requires Pygments installed.
-# 							   sudo easy_install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
 
 # edit dotfiles 
 alias tc="$EDITOR ~/dotfiles/files/.tmux.conf"
