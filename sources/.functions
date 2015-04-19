@@ -46,7 +46,7 @@ ssh() {
 
 # SSH Tunnel
 sshtunnel() {
-	  ssh -D 9333 -C -N -v "${1:cinaglia.com}" 
+	  ssh -D 9333 -C -N -v ${1-"$SSH_TUNNEL_HOSTNAME"}
 }
 
 # Toggle visibility of file
