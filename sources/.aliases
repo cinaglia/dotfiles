@@ -79,10 +79,6 @@ alias gp="git pull"
 alias gd="git diff"
 alias gc="git checkout"
 
-# edit dotfiles 
-alias tc="$EDITOR ~/dotfiles/files/.tmux.conf"
-alias bp="$EDITOR ~/dotfiles/files/.bash_profile"
-
 # PHP unit
 alias pug="phpunit -v --debug --colors --group"
 
