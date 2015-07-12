@@ -18,6 +18,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'tpope/vim-surround'
+Plugin 'jeetsukumaran/vim-indentwise'
 
 call vundle#end()
 
