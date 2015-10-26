@@ -7,23 +7,23 @@ syntax on
 " Comma is the leader key
 let mapleader = ','
 
-" Init vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/vundle'
-Plugin 'tpope/vim-commentary'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'tpope/vim-surround'
-Plugin 'jeetsukumaran/vim-indentwise'
-
-call vundle#end()
-
 " Detect file types
 filetype plugin indent on
+
+" Init vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'flazz/vim-colorschemes'
+Plug 'sjl/gundo.vim'
+Plug 'rking/ag.vim'
+
+call plug#end()
 
 " ================ General Config ====================
 set number                      "Line numbers are good
@@ -34,6 +34,9 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set paste                       "Paste mode
+set cursorline                  "Highlight current line
+set wildmenu                    "Autocomplete for command menu
 
 " ================ Turn Off Swap Files ==============
 "
@@ -66,3 +69,7 @@ if has('gui_running')
 else
    set background=dark
 endif
+
+colorscheme badwolf
+set t_ut=
+nnoremap <leader>u :GundoToggle<CR>

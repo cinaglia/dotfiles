@@ -1,0 +1,47 @@
+# fbr - checkout git branch
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf-tmux +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# fshow - git commit browser
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf-tmux --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` \
+      --bind "ctrl-m:execute:
+                echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R'"
+}
+
+fcs() {
+  local commits commit
+  commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf-tmux --tac +s +m -e --ansi --reverse) &&
+  echo -n $(echo "$commit" | sed "s/ .*//")
+}
+
+
+fstash() {
+  local out q k sha
+    while out=$(
+      git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
+      fzf-tmux --ansi --no-sort --query="$q" --print-query \
+          --expect=ctrl-d,ctrl-b);
+    do
+      q=$(head -1 <<< "$out")
+      k=$(head -2 <<< "$out" | tail -1)
+      sha=$(tail -1 <<< "$out" | cut -d' ' -f1)
+      [ -z "$sha" ] && continue
+      if [ "$k" = 'ctrl-d' ]; then
+        git diff $sha
+      elif [ "$k" = 'ctrl-b' ]; then
+        git stash branch "stash-$sha" $sha
+        break;
+      else
+        git stash show -p $sha
+      fi
+    done
+}

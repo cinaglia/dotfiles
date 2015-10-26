@@ -18,3 +18,6 @@ if [[ $(brew --version  2> /dev/null) ]]; then
     [ -f $(brew --prefix)/$app ] && . $(brew --prefix)/$app
   done
 fi
+
+# FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

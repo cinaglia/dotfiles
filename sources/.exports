@@ -28,3 +28,6 @@ export HISTTIMEFORMAT
 
 # Make some commands not show up in history
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+
+# FZF
+export FZF_DEFAULT_OPTS="--extended --cycle"
