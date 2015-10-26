@@ -23,7 +23,8 @@ fcs() {
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
-
+# ctrl-d: show diff against HEAD
+# ctrl-b: apply stash
 fstash() {
   local out q k sha
     while out=$(
@@ -38,10 +39,10 @@ fstash() {
       if [ "$k" = 'ctrl-d' ]; then
         git diff $sha
       elif [ "$k" = 'ctrl-b' ]; then
-        git stash branch "stash-$sha" $sha
+        git stash apply $sha
         break;
       else
-        git stash show -p $sha
+        git stash show -p $sha --color=always | less -R
       fi
     done
 }
