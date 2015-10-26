@@ -1,9 +1,9 @@
 # fbr - checkout git branch
 fbr() {
   local branches branch
-  branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf-tmux +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  branches=$(git branch -vv --color=always) &&
+  branch=$(echo "$branches" | fzf-tmux --ansi) &&
+  git checkout $(echo "$branch" | sed "s/^* //" | awk '{print $1}' | sed "s/.* //")
 }
 
 # fshow - git commit browser
