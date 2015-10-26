@@ -16,11 +16,17 @@ fshow() {
                 xargs -I % sh -c 'git show --color=always % | less -R'"
 }
 
+# fcs - get git commit sha
 fcs() {
   local commits commit
   commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf-tmux --tac +s +m -e --ansi --reverse) &&
   echo -n $(echo "$commit" | sed "s/ .*//")
+}
+
+# rebase from sha
+rcs() {
+  git rebase -i `fcs`
 }
 
 # ctrl-d: show diff against HEAD
