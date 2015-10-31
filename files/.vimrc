@@ -68,7 +68,6 @@ else
    set background=dark
 endif
 
-
 " =================== Custom =======================
 colorscheme badwolf
 set t_ut=
@@ -84,4 +83,5 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
+autocmd BufEnter * set updatetime=750
 let g:gitgutter_highlight_lines = 1
