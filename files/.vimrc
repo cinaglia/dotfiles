@@ -23,7 +23,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'mhinz/vim-signify'
+Plug 'vim-gitgutter'
 
 call plug#end()
 
@@ -83,3 +83,5 @@ map  gcc  <Plug>CommentaryLine
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
+
+let g:gitgutter_highlight_lines = 1
