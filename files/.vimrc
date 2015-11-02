@@ -60,7 +60,10 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+
+" =================== Search ========================
 set incsearch
+set hlsearch
 
 filetype plugin on
 filetype indent on
@@ -144,3 +147,9 @@ autocmd FileType html,css EmmetInstall
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd ctermbg=235
 autocmd VimEnter * :IndentGuidesEnable
+
+" Perhaps this will help :)
+map <left> :echo "no!"<cr>
+map <right> :echo "no!"<cr>
+map <up> :echo "no!"<cr>
+map <down> :echo "no!"<cr>
