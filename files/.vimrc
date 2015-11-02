@@ -27,6 +27,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'townk/vim-autoclose'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
 
@@ -90,6 +91,7 @@ nnoremap <space> za
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd BufEnter * set updatetime=750
+autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Gitgutter
 let g:gitgutter_highlight_lines = 1
@@ -117,3 +119,7 @@ silent! if emoji#available()
     let g:syntastic_warning_symbol = emoji#for('warning')
     let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
 endif
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
