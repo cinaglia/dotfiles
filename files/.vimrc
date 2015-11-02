@@ -92,6 +92,7 @@ nnoremap <space> za
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 
 " Gitgutter
 let g:gitgutter_highlight_lines = 1
