@@ -32,6 +32,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
 Plug 'mattn/emmet-vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'lfilho/cosco.vim'
 
 call plug#end()
 
@@ -147,6 +148,10 @@ autocmd FileType html,css EmmetInstall
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd ctermbg=235
 autocmd VimEnter * :IndentGuidesEnable
+
+" Cosco
+autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
 " Perhaps this will help :)
 map <left> :echo "no!"<cr>
