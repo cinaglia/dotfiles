@@ -30,6 +30,8 @@ Plug 'townk/vim-autoclose'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
+Plug 'mattn/emmet-vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -58,6 +60,7 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+set incsearch
 
 filetype plugin on
 filetype indent on
@@ -94,6 +97,14 @@ autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 
+" 80-character limit
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+endif
+
 " Gitgutter
 let g:gitgutter_highlight_lines = 1
 silent! if emoji#available()
@@ -124,3 +135,12 @@ endif
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+" Emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" Indent guides
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd ctermbg=235
+autocmd VimEnter * :IndentGuidesEnable
