@@ -21,7 +21,11 @@ function md() {
 
 # Create a new directory and enter it
 function serve() {
-    python -m SimpleHTTPServer "$1"
+    if [ "$#" -eq 1 ]; then
+      /usr/bin/python -m SimpleHTTPServer "$1"
+    else
+      pushd "$1"; /usr/bin/python -m SimpleHTTPServer "$2"; popd
+    fi
 }
 
 # upload file to server and pbcopy its new url.
