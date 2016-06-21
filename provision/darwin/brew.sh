@@ -25,8 +25,9 @@ pkgs=(
   pyenv-virtualenv
   vcprompt
   caskroom/cask/brew-cask
-  httpie,
+  httpie
   fzf
+  n
 )
 
 # Install all brew packages
