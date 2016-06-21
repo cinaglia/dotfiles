@@ -56,7 +56,6 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias g="git"
 alias v="vim"
-alias n="node"
 alias h="hg"
 alias p='python'
 alias t="tmux"
