@@ -14,11 +14,13 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'raichoo/purescript-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
@@ -33,6 +35,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'mattn/emmet-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lfilho/cosco.vim'
+Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
@@ -158,3 +161,15 @@ map <left> :echo "no!"<cr>
 map <right> :echo "no!"<cr>
 map <up> :echo "no!"<cr>
 map <down> :echo "no!"<cr>
+
+" FZF mappings
+map <c-t> :FZF<cr>
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+nnoremap <silent> <c-x><c-p> :History<cr>
+
