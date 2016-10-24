@@ -50,7 +50,7 @@ ssh() {
 
 # SSH Tunnel
 sshtunnel() {
-	  ssh -D 9333 -C -N -v ${1-"$SSH_TUNNEL_HOSTNAME"}
+	  ssh -D 9333 -C -N -v ${1-"$SSH_TUNNEL_HOSTNAME"} -p ${2-"22"}
 }
 
 # Toggle visibility of file
