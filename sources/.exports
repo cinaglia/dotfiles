@@ -35,6 +35,9 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 # FZF
 export FZF_DEFAULT_OPTS="--extended --cycle"
 export FZF_CTRL_R_OPTS="-s"
+export FZF_DEFAULT_COMMAND='ag --depth=3 --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # Increase file limit
 ulimit -n 65536 65536
