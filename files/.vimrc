@@ -1,5 +1,5 @@
 set nocompatible               " be iMproved
-set autoread 
+set autoread
 
 " Enable syntax
 syntax on
@@ -24,6 +24,8 @@ Plug 'raichoo/purescript-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
@@ -91,6 +93,7 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader><Leader> :Files<CR>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
+
 
 xmap gc  <Plug>Commentary
 nmap gc  <Plug>Commentary
