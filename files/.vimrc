@@ -1,6 +1,8 @@
 set nocompatible               " be iMproved
 set autoread
 set timeoutlen=10
+set splitright
+set splitbelow
 
 " Enable syntax
 syntax on
