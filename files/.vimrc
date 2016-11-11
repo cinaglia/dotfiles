@@ -1,5 +1,6 @@
 set nocompatible               " be iMproved
 set autoread
+set timeoutlen=1000 ttimeoutlen=10
 
 " Enable syntax
 syntax on
@@ -117,6 +118,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 " 80-character limit
 if exists('+colorcolumn')
