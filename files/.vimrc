@@ -1,6 +1,6 @@
 set nocompatible               " be iMproved
 set autoread
-set timeoutlen=1000 ttimeoutlen=10
+set timeoutlen=10
 
 " Enable syntax
 syntax on
