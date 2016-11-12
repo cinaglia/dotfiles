@@ -28,6 +28,7 @@ pkgs=(
   httpie
   fzf
   n
+  highlight
 )
 
 # Install all brew packages
