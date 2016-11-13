@@ -83,12 +83,6 @@ set list listchars=tab:\ \ ,trail:·
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-
 " =================== Custom =======================
 colorscheme badwolf
 set t_ut=
