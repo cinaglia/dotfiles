@@ -41,6 +41,7 @@ Plug 'mattn/emmet-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lfilho/cosco.vim'
 Plug 'terryma/vim-expand-region'
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -90,7 +91,6 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader><Leader> :Files<CR>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
-
 
 xmap gc  <Plug>Commentary
 nmap gc  <Plug>Commentary
@@ -160,7 +160,7 @@ autocmd FileType html,css EmmetInstall
 
 " Indent guides
 let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd ctermbg=235
+hi IndentGuidesOdd ctermbg=233
 autocmd VimEnter * :IndentGuidesEnable
 
 " Cosco
@@ -188,3 +188,5 @@ nnoremap <silent> <c-x><c-p> :History<cr>
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
+" clear search
+nnoremap <CR> :noh<CR><CR>
