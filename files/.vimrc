@@ -7,9 +7,6 @@ set splitbelow
 " Enable syntax
 syntax on
 
-" Comma is the leader key
-let mapleader = ','
-
 " Detect file types
 filetype plugin indent on
 
