@@ -125,7 +125,6 @@ else
 endif
 
 " Gitgutter
-let g:gitgutter_highlight_lines = 1
 silent! if emoji#available()
     let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
     let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
