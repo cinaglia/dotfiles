@@ -184,3 +184,7 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent> <c-x><c-p> :History<cr>
 
+" dark background
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+
