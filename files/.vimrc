@@ -39,6 +39,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lfilho/cosco.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
@@ -187,3 +188,7 @@ hi NonText ctermbg=none
 
 " clear search
 nnoremap <CR> :noh<CR><CR>
+
+" easy edit/reload
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
