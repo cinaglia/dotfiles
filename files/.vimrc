@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'elzr/vim-json'
 Plug 'sheerun/vim-polyglot'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/Enter-Indent'
@@ -164,6 +163,9 @@ autocmd VimEnter * :IndentGuidesEnable
 " Cosco
 autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 " Perhaps this will help :)
 map <left> :echo "no!"<cr>
