@@ -81,7 +81,7 @@ set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " =================== Custom =======================
-colorscheme badwolf
+colorscheme monokain
 set t_ut=
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
@@ -138,6 +138,7 @@ let s:eslint_path = system('npm-which eslint')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['flake8']
 
 silent! if emoji#available()
     hi Error ctermbg=NONE
