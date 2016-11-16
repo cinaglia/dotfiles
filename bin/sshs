@@ -20,7 +20,8 @@ if [ $servers ]; then
         fi;
         counter=$((counter + 1));
     done;
-    tmux select-layout even-vertical;
-    tmux set-window-option synchronize-panes on;
-    tmux rename-window 'ssh-cluster'
+    if [ ${#servers[@]} -gt 1 ]; then
+      tmux select-layout even-vertical;
+      tmux set-window-option synchronize-panes on;
+    fi
 fi
