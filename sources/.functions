@@ -73,3 +73,10 @@ kp() {
 
 	kill $(ps aux | grep $1 | grep -v 'grep' | head -n 1 | cut -d \  -f 2)
 }
+
+# Print list of colors
+colors() {
+  for i in {0..255}; do
+    printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+  done
+}
