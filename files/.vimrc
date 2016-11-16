@@ -3,6 +3,7 @@ set autoread
 set timeoutlen=500
 set splitright
 set splitbelow
+set clipboard=unnamed
 
 " Enable syntax
 syntax on
