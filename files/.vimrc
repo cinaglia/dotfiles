@@ -186,9 +186,10 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent> <c-x><c-p> :History<cr>
 
-" dark background
+" Custom colors
 hi Normal ctermbg=none
 hi NonText ctermbg=none
+hi StatusLine ctermfg=234 ctermbg=33 cterm=none
 
 " clear search
 nnoremap <CR> :noh<CR><CR>
