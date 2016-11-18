@@ -39,6 +39,7 @@ Plug 'lfilho/cosco.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
