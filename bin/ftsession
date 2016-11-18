@@ -2,7 +2,6 @@
 
 sessions=$(
   tmux list-sessions -F '#{session_name};#{session_windows} windows;#{?session_attached,(attached),}' |
-  grep -v attached |
   column -s\; -t |
   awk '{print "["NR-1"]", $0}'
 )
