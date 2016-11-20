@@ -39,6 +39,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
+Plug 'craigemery/vim-autotag'
 
 call plug#end()
 
