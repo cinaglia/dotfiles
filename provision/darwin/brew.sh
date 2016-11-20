@@ -29,6 +29,7 @@ pkgs=(
   fzf
   n
   highlight
+  ctags
 )
 
 # Install all brew packages
