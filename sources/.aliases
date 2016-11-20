@@ -54,6 +54,8 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
 alias g="git"
+alias gpu="git push -u origin head"
+alias gpf="confirm && git push -f origin head"
 alias v="vim"
 alias h="hg"
 alias p='python'
