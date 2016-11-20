@@ -45,3 +45,5 @@
 
 [push]
   default = matching
+[core]
+	excludesfile = /Users/victorcinaglia/.gitignore_global
