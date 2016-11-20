@@ -85,9 +85,6 @@ set linebreak    "Wrap lines at convenient points
 colorscheme monokain
 set t_ut=
 nnoremap <leader>u :GundoToggle<CR>
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
-nnoremap <silent> <Leader><Leader> :Files<CR>
-nnoremap <silent> <Leader><Enter> :Buffers<CR>
 
 xmap gc  <Plug>Commentary
 nmap gc  <Plug>Commentary
@@ -176,7 +173,7 @@ map <up> :echo "no!"<cr>
 map <down> :echo "no!"<cr>
 
 " FZF mappings
-map <c-t> :FZF<cr>
+map <c-t> :Files<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
@@ -185,6 +182,14 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent> <c-x><c-p> :History<cr>
+nnoremap <silent> <leader>t :Tags<cr>
+nnoremap <silent> <leader>b :BTags<cr>
+nnoremap <silent> <leader>ag :Ag<cr>
+nnoremap <silent> <leader><Leader> :Files<cr>
+nnoremap <silent> <leader><Enter> :Buffers<cr>
+
+let g:fzf_files_options =
+  \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
 " Custom colors
 hi Normal ctermbg=none
@@ -200,3 +205,5 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 nnoremap <C-W>M <C-W>\| <C-W>_
 nnoremap <C-W>m <C-W>=
+
+
