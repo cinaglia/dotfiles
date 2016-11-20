@@ -23,8 +23,8 @@ alias cro="sudo $EDITOR /etc/crontab"
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# Directory size
-alias dug='du -h | grep ^[0-9.]*G | sort -rn | head -n 20'
+# Largest directory sizes
+alias dug='du -h | sort -rn | head -n 20'
 
 # Grep processes running
 alias pg='ps -ef | grep '
@@ -47,7 +47,6 @@ alias lsd='ls -l | grep "^d"'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Recursively delete `.DS_Store` files
@@ -64,14 +63,6 @@ alias l="ll"
 
 # Edit hosts file
 alias ho="sudo $EDITOR /etc/hosts"
-
-# Mercurial + HG FLow
-alias hf="hg flow" 
-alias hfh="hf hotfix"
-alias hfhs="hff start"
-alias hfhf="hff finish"
-alias hi="hg import --no-commit"
-alias hp="hg pull -u"
 
 # Git
 alias gp="git pull"
