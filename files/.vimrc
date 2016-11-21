@@ -40,6 +40,8 @@ Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 Plug 'craigemery/vim-autotag'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-after-object'
 
 call plug#end()
 
@@ -174,7 +176,7 @@ map <up> :echo "no!"<cr>
 map <down> :echo "no!"<cr>
 
 " FZF mappings
-map <c-t> :Files<cr>
+" map <c-t> :Files<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
@@ -204,7 +206,9 @@ nnoremap <CR> :noh<CR><CR>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+" pane expansion
 nnoremap <C-W>M <C-W>\| <C-W>_
 nnoremap <C-W>m <C-W>=
 
-
+" vim-after-object
+autocmd VimEnter * call after_object#enable('=', ':', ' ')
