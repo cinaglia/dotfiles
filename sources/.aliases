@@ -76,3 +76,6 @@ alias pug="phpunit -v --debug --colors --group"
 
 # fix irssi scrolling
 alias irssi='TERM=screen-256color irssi'
+
+# brew ctags
+alias ctags="`brew --prefix`/bin/ctags"
