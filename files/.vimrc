@@ -43,6 +43,8 @@ Plug 'tpope/vim-obsession'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-after-object'
+Plug 'itchyny/lightline.vim'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -57,6 +59,7 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set cursorline                  "Highlight current line
 set wildmenu                    "Autocomplete for command menu
+set laststatus=2                "Always show status line"
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -198,7 +201,6 @@ let g:fzf_files_options =
 " Custom colors
 hi Normal ctermbg=none
 hi NonText ctermbg=none
-hi StatusLine ctermfg=234 ctermbg=33 cterm=none
 
 " clear search
 nnoremap <CR> :noh<CR><CR>
@@ -213,3 +215,15 @@ nnoremap <C-W>m <C-W>=
 
 " vim-after-object
 autocmd VimEnter * call after_object#enable('=', ':', ' ')
+
+" lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'filename', 'modified' ],
+      \             [ 'tagbar' ] ]
+      \ },
+      \ 'component': {
+      \   'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
+      \ },
+      \ }
