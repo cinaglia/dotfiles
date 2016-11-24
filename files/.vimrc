@@ -14,7 +14,7 @@ filetype plugin indent on
 " Init vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  [ 'NERDTreeToggle','NERDTreeFind' ] }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
