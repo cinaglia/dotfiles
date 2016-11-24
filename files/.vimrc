@@ -34,7 +34,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
 Plug 'mattn/emmet-vim'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'lfilho/cosco.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'justinmk/vim-sneak'
@@ -45,6 +45,12 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-after-object'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'junegunn/vim-slash'
 
 call plug#end()
 
@@ -161,11 +167,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
-" Indent guides
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd ctermbg=233
-autocmd VimEnter * :IndentGuidesEnable
-
 " Cosco
 autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
@@ -229,3 +230,6 @@ let g:lightline = {
       \   'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
       \ },
       \ }
+
+" vim slash
+noremap <plug>(slash-after) zz
