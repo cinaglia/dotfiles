@@ -180,7 +180,6 @@ map <up> :echo "no!"<cr>
 map <down> :echo "no!"<cr>
 
 " FZF mappings
-" map <c-t> :Files<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
