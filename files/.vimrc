@@ -215,6 +215,9 @@ nnoremap <C-W>m <C-W>=
 " vim-after-object
 autocmd VimEnter * call after_object#enable('=', ':', ' ')
 
+" tagbar
+nnoremap <silent> <leader>f :TagbarToggle<cr>
+
 " lightline
 let g:lightline = {
       \ 'active': {
