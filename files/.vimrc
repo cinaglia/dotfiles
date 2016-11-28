@@ -136,10 +136,10 @@ endif
 
 " Gitgutter
 silent! if emoji#available()
-    let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-    let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-    let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-    let g:gitgutter_sign_modified_removed = emoji#for('collision')
+  let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+  let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+  let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+  let g:gitgutter_sign_modified_removed = emoji#for('collision')
 endif
 
 " Syntastic
@@ -154,11 +154,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['flake8']
 
 silent! if emoji#available()
-    hi Error ctermbg=NONE
-    let g:syntastic_error_symbol = emoji#for('no_entry')
-    let g:syntastic_style_error_symbol = emoji#for('exclamation')
-    let g:syntastic_warning_symbol = emoji#for('warning')
-    let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
+  hi Error ctermbg=NONE
+  let g:syntastic_error_symbol = emoji#for('no_entry')
+  let g:syntastic_style_error_symbol = emoji#for('exclamation')
+  let g:syntastic_warning_symbol = emoji#for('warning')
+  let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
 endif
 
 " UltiSnips
@@ -223,15 +223,15 @@ nnoremap <silent> <leader>f :TagbarToggle<cr>
 
 " lightline
 let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename', 'modified' ],
-      \             [ 'tagbar' ] ]
-      \ },
-      \ 'component': {
-      \   'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
-      \ },
-      \ }
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'filename', 'modified' ],
+  \             [ 'tagbar' ] ]
+  \ },
+  \ 'component': {
+  \   'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
+  \ },
+  \ }
 
 " vim slash
 noremap <plug>(slash-after) zz
