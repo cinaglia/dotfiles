@@ -113,11 +113,6 @@ nmap gcu <Plug>Commentary<Plug>Commentary
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " fold
 set foldmethod=indent
 set foldlevel=99
@@ -179,12 +174,6 @@ autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#com
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
-
-" Perhaps this will help :)
-map <left> :echo "no!"<cr>
-map <right> :echo "no!"<cr>
-map <up> :echo "no!"<cr>
-map <down> :echo "no!"<cr>
 
 " FZF mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
