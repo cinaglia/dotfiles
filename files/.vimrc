@@ -101,6 +101,7 @@ colorscheme monokain
 set t_ut=
 nnoremap <leader>u :GundoToggle<CR>
 
+" vim-commentary
 xmap gc  <Plug>Commentary
 nmap gc  <Plug>Commentary
 omap gc  <Plug>Commentary
@@ -108,6 +109,7 @@ nmap gcc <Plug>CommentaryLine
 nmap cgc <Plug>ChangeCommentary
 nmap gcu <Plug>Commentary<Plug>Commentary
 
+" nerdtree
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
@@ -116,10 +118,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" fold
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
+" filetype specific configuration
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -200,7 +204,7 @@ nnoremap <silent> <leader><Enter> :Buffers<cr>
 let g:fzf_files_options =
   \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
-" Custom colors
+" Custom background colors
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
