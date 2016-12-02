@@ -31,9 +31,6 @@
   changed   = green
   untracked = cyan
 
-[diff]
-  tool = Kaleidoscope
-
 [diff "exif"]
   textconv = exiftool
 
@@ -45,5 +42,6 @@
 
 [push]
   default = matching
+
 [core]
-	excludesfile = /Users/victorcinaglia/.gitignore_global
+  excludesfile = ~/.gitignore_global
