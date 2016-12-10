@@ -169,8 +169,8 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " Cosco
-autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css nnoremap ;; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap ;; <c-o>:call cosco#commaOrSemiColon()<CR>
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
