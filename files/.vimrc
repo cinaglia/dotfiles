@@ -99,6 +99,19 @@ set linebreak    "Wrap lines at convenient points
 " =================== Custom =======================
 colorscheme monokain
 set t_ut=
+
+map q: :q
+nnoremap <space> zz
+nnoremap <leader>w :w!<cr>
+nnoremap <silent> <leader>q :q!<CR>
+
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+nnoremap Y y$
+
+" gundo
 nnoremap <leader>u :GundoToggle<CR>
 
 " vim-commentary
@@ -116,7 +129,6 @@ map <leader>n :NERDTreeFind<CR>
 " fold
 set foldmethod=indent
 set foldlevel=99
-nnoremap <space> za
 
 " filetype specific configuration
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -228,3 +240,6 @@ let g:lightline = {
 
 " vim slash
 noremap <plug>(slash-after) zz
+
+" vim-fugitive
+noremap <leader>gb :Gblame<cr>
