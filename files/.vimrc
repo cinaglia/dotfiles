@@ -200,6 +200,7 @@ let g:fzf_files_options =
 " Custom background colors
 hi Normal ctermbg=none
 hi NonText ctermbg=none
+hi ColorColumn ctermbg=235
 
 " clear search
 nnoremap <CR> :noh<CR><CR>
