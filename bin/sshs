@@ -1,9 +1,14 @@
 #/bin/bash
 
 search () {
-  for domainname in home; do
-    dig -t AXFR $domainname | grep -v ";" | awk '{ print $1}' | sed 's/\.$//' | grep "$1"
-  done
+  if [ "$DOMAIN_NAMES" ]; then
+    for domainname in $DOMAIN_NAMES; do
+      dig -t AXFR $domainname | grep -v ";" | grep -v "^_" | grep -v "^\s*$" | awk '{ print $1}' | sed 's/\.$//' | grep "$1" | uniq
+    done
+  else
+    # Default to known hosts instead
+    cat ~/.ssh/known_hosts | awk -F',| ' '{ print $1 }' | uniq | sort
+  fi
 }
 
 servers=(`search "$1" | fzf -m --reverse | sed 's/ /\n/g'`);
