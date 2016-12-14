@@ -102,6 +102,19 @@ set linebreak    "Wrap lines at convenient points
 " =================== Custom =======================
 colorscheme monokain
 set t_ut=
+
+map q: :q
+nnoremap <space> zz
+nnoremap <leader>w :w!<cr>
+nnoremap <silent> <leader>q :q!<CR>
+
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+nnoremap Y y$
+
+" gundo
 nnoremap <leader>u :GundoToggle<CR>
 
 " vim-commentary
@@ -173,8 +186,8 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " Cosco
-autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css nnoremap ;; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap ;; <c-o>:call cosco#commaOrSemiColon()<CR>
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
@@ -237,3 +250,5 @@ noremap <plug>(slash-after) zz
 " camel-case motion
 call camelcasemotion#CreateMotionMappings(',')
 
+" vim-fugitive
+noremap <leader>gb :Gblame<cr>
