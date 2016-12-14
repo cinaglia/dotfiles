@@ -119,7 +119,6 @@ map <leader>n :NERDTreeFind<CR>
 " fold
 set foldmethod=indent
 set foldlevel=99
-nnoremap <space> za
 
 " filetype specific configuration
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -162,6 +161,8 @@ silent! if emoji#available()
   let g:syntastic_warning_symbol = emoji#for('warning')
   let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
 endif
+
+let syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
