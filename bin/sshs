@@ -1,6 +1,7 @@
 #/bin/bash
 
 search () {
+  source ~/dotfiles/sources/.extra;
   if [ "$DOMAIN_NAMES" ]; then
     for domainname in $DOMAIN_NAMES; do
       dig -t AXFR $domainname | grep -v ";" | grep -v "^_" | grep -v "^\s*$" | awk '{ print $1}' | sed 's/\.$//' | grep "$1" | uniq
