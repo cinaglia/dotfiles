@@ -33,7 +33,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'townk/vim-autoclose'
+Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
@@ -44,15 +44,18 @@ Plug 'terryma/vim-expand-region'
 Plug 'justinmk/vim-sneak'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-after-object'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'bkad/CamelCaseMotion'
+Plug 'wellle/targets.vim'
+Plug 'junegunn/vim-after-object'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'junegunn/vim-slash'
+Plug 'blueyed/vim-diminactive'
+Plug 'tommcdo/vim-exchange'
 
 call plug#end()
 
@@ -228,3 +231,7 @@ let g:lightline = {
 
 " vim slash
 noremap <plug>(slash-after) zz
+
+" camel-case motion
+call camelcasemotion#CreateMotionMappings(',')
+
