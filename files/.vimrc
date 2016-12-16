@@ -114,6 +114,9 @@ vnoremap H ^
 vnoremap L g_
 nnoremap Y y$
 
+" previous buffer
+nnoremap <leader><space> <c-^>
+
 " gundo
 nnoremap <leader>u :GundoToggle<CR>
 
