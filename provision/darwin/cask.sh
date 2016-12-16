@@ -2,7 +2,6 @@
 brew tap | grep -q 'caskroom/versions' || brew tap caskroom/versions
 
 casks=(
-  # (Un)Productivity
   bettertouchtool
   alfred
   dropbox
@@ -14,12 +13,10 @@ casks=(
   google-drive
   chromecast
   spotify
-
-  # Development
-  sublime-text3
   iterm2
   virtualbox
   vagrant
+  hammerspoon
 )
 
 # Install all brew casks
