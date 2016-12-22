@@ -56,6 +56,8 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'junegunn/vim-slash'
 Plug 'blueyed/vim-diminactive'
 Plug 'tommcdo/vim-exchange'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -115,7 +117,7 @@ vnoremap L g_
 nnoremap Y y$
 
 " previous buffer
-nnoremap <leader><space> <c-^>
+nnoremap <leader>T <c-^>
 
 " gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -142,6 +144,7 @@ autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype php set cul!
 
 " 80-character limit
 if exists('+colorcolumn')
@@ -194,6 +197,9 @@ autocmd FileType javascript,css inoremap ;; <c-o>:call cosco#commaOrSemiColon()<
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+" vim-markdown
+let g:vim_markdown_conceal = 0
 
 " FZF mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -255,3 +261,16 @@ call camelcasemotion#CreateMotionMappings(',')
 
 " vim-fugitive
 noremap <leader>gb :Gblame<cr>
+
+" tab navigation
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+" backspace
+nnoremap <BS> i<BS>
+nnoremap <leader><BS> mx$"_x`x
+
+" copy/paste mappings
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+vnoremap <leader>r "_dP
