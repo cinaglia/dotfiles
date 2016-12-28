@@ -282,6 +282,9 @@ nnoremap <BS> i<BS>
 nnoremap <leader><BS> mx$"_x`x
 
 " copy/paste mappings
+nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
+nnoremap <leader>p "+p
 vnoremap <leader>r "_dP
+nnoremap <leader>r "_dP
