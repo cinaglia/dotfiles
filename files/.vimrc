@@ -212,6 +212,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent> <c-x><c-p> :History<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 nnoremap <silent> <leader>b :BTags<cr>
+nnoremap <silent> <leader>m :Marks<cr>
 nnoremap <silent> <leader>ag :Ag<cr>
 nnoremap <silent> <leader><Leader> :Files<cr>
 nnoremap <silent> <leader><Enter> :Buffers<cr>
