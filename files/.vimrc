@@ -232,9 +232,19 @@ nnoremap <CR> :noh<CR><CR>
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
-" pane expansion
-nnoremap <C-W>M <C-W>\| <C-W>_
-nnoremap <C-W>m <C-W>=
+" pane zoom
+function! ToggleZoom()
+  let threshold = 0.95
+  let width_ratio = winwidth(0) / str2float(&columns)
+  let height_ratio = winheight(0) / str2float(&lines)
+  let is_maximized =  width_ratio > threshold && height_ratio > threshold
+  if is_maximized == 1
+    execute "normal \<C-W>\="
+  else
+    execute "normal \<C-W>\| \<C-W>\_"
+  endif
+endfunction
+nnoremap <silent> <leader>z :call ToggleZoom()<cr>
 
 " vim-after-object
 autocmd VimEnter * call after_object#enable('=', ':', ' ')
