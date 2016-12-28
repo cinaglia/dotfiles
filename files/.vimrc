@@ -229,8 +229,8 @@ hi ColorColumn ctermbg=235
 nnoremap <CR> :noh<CR><CR>
 
 " easy edit/reload
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR>
 
 " pane expansion
 nnoremap <C-W>M <C-W>\| <C-W>_
