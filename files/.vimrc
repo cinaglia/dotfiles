@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
@@ -58,6 +59,7 @@ Plug 'blueyed/vim-diminactive'
 Plug 'tommcdo/vim-exchange'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'naberon/vim-cakehtml'
 
 call plug#end()
 
@@ -145,6 +147,7 @@ autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 autocmd Filetype php set cul!
+autocmd BufNewFile,BufRead *.thtml setlocal filetype=htmlcake
 
 " 80-character limit
 if exists('+colorcolumn')
