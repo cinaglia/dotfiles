@@ -25,6 +25,7 @@ pkgs=(
   ctags
   reattach-to-user-namespace
   macvim
+  hub
 )
 
 # Install all brew packages

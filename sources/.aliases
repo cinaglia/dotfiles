@@ -53,6 +53,8 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
+alias got="git"
+alias git="hub"
 alias g="git"
 alias gpu="git push -u origin head"
 alias gpf="confirm && git push -f origin head"
