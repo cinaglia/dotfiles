@@ -5,24 +5,39 @@ DOTFILES=$HOME/dotfiles
 # Glob dotfiles
 shopt -s dotglob
 
+function symlink_directory_files() {
+  local origin=$(basename $1)
+  local dest=$(basename $2)
+
+  for f in $origin/*; do
+    if [ ! -e $dest/$(basename $f) ]; then
+      ln -nsf $f $dest
+      echo "Symlinked $f."
+    else
+      echo "Symlink already existed: $f"
+    fi
+  done
+}
+
 # Create all symlinks
 echo "Symlinking files from $DOTFILES/files/ into $HOME.."
-for f in $DOTFILES/files/*; do
-    if [ ! -e $HOME/$(basename $f) ]; then
-        ln -nsf $f $HOME
-        echo "Symlinked $f."
-    fi
-done
+symlink_directory_files $DOTFILES/files $HOME
 
 # Create expected directories
-DIRECTORIES=(workspace code bin .vim/bundle)
+DIRECTORIES=(workspace code bin)
 echo "Creating directories.."
 for directory in ${DIRECTORIES[@]}; do
-    if [ ! -d $HOME/$directory ]; then
-        mkdir -p $HOME/$directory
-        echo "Created $HOME/$directory."
-    fi
+  if [ ! -d $HOME/$directory ]; then
+    mkdir -p $HOME/$directory
+    echo "Created $HOME/$directory."
+  else
+    echo "Directory already existed: $directory"
+  fi
 done
+
+# Symlink bin scripts
+echo "Symlinking bin scripts from $DOTFILES/bin/ into $HOME/bin.."
+symlink_directory_files $DOTFILES/bin $HOME/bin
 
 # Source profile
 echo "Sourcing $HOME/.bash_profile"
