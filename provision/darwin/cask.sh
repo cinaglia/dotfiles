@@ -1,4 +1,5 @@
-# Setup taps
+# Setup cask taps
+brew tap | grep -q 'caskroom/cask' || brew tap caskroom/cask
 brew tap | grep -q 'caskroom/versions' || brew tap caskroom/versions
 
 casks=(
@@ -7,11 +8,8 @@ casks=(
   dropbox
   1password
   sizeup
-  totalspaces
-  seil
   google-chrome
   google-drive
-  chromecast
   spotify
   iterm2
   virtualbox
@@ -22,5 +20,5 @@ casks=(
 # Install all brew casks
 for cask in "${casks[@]}"
 do
-  [ ! -d /opt/homebrew-cask/Caskroom/$(basename $cask) ] && brew cask install $cask
+  [ ! -d /usr/local/Caskroom/$(basename $cask) ] && brew cask install $cask || echo "Already installed: $cask"
 done
