@@ -217,7 +217,7 @@ nnoremap <silent> <leader>b :BTags<cr>
 nnoremap <silent> <leader>m :Marks<cr>
 nnoremap <silent> <leader>ag :Ag<cr>
 nnoremap <silent> <leader><Leader> :Files<cr>
-nnoremap <silent> <leader><Enter> :Buffers<cr>
+nnoremap <silent> <leader>B :Buffers<cr>
 
 let g:fzf_files_options =
   \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
@@ -294,3 +294,9 @@ nnoremap <leader>r "_dP
 " reselect visual block
 vnoremap < <gv
 vnoremap > >gv
+
+" insert one character and stay in normal mode
+nnoremap <leader>i i_<esc>r
+
+" replace current character with a line break
+nnoremap <silent> <leader><enter> r<cr>
