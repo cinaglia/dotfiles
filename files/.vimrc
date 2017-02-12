@@ -291,3 +291,7 @@ vnoremap <leader>p "+p
 nnoremap <leader>p "+p
 vnoremap <leader>r "_dP
 nnoremap <leader>r "_dP
+
+" reselect visual block
+vnoremap < <gv
+vnoremap > >gv
