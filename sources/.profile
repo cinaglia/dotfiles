@@ -1,6 +1,3 @@
-# Enable virtualenvwrapper
-[[ -e "/usr/local/bin/virtualenvwrapper_lazy.sh" ]] && source "/usr/local/bin/virtualenvwrapper_lazy.sh"
-
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -12,10 +9,11 @@ shopt -s nocaseglob
 complete -W "NSGlobalDomain" defaults
 
 # Init brew-specific apps
-if [[ $(brew --version  2> /dev/null) ]]; then
+if [[ $(which brew) ]]; then
+	prefix=$(brew --prefix)
   brew=(etc/bash_completion etc/profile.d/z.sh)
   for app in "${brew[@]}"; do
-    [ -f $(brew --prefix)/$app ] && . $(brew --prefix)/$app
+    [ -f $prefix/$app ] && . $prefix/$app
   done
 fi
 

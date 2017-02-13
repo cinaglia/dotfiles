@@ -43,8 +43,8 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi {} 2> /dev/null || cat {} 
 ulimit -n 65536 65536
 
 # pyenv
-eval "$(pyenv init -)"
+eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 
 # nodenv
-eval "$(nodenv init -)"
+eval "$(nodenv init - --no-rehash)"
