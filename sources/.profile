@@ -9,13 +9,11 @@ shopt -s nocaseglob
 complete -W "NSGlobalDomain" defaults
 
 # Init brew-specific apps
-if [[ $(which brew) ]]; then
-	prefix=$(brew --prefix)
-  brew=(etc/bash_completion etc/profile.d/z.sh)
-  for app in "${brew[@]}"; do
-    [ -f $prefix/$app ] && . $prefix/$app
-  done
-fi
+brew_prefix=/usr/local
+brew_apps=(etc/bash_completion etc/profile.d/z.sh)
+for app in "${brew_apps[@]}"; do
+  [ -f $brew_prefix/$app ] && . $brew_prefix/$app
+done
 
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
