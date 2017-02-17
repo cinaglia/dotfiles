@@ -303,3 +303,5 @@ nnoremap <leader>i i_<esc>r
 
 " replace current character with a line break
 nnoremap <silent> <leader><enter> r<cr>
+
+noremap <leader>a <C-a>
