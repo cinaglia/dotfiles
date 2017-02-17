@@ -1,6 +1,7 @@
 set nocompatible
 set autoread
 set timeoutlen=500
+set ttimeoutlen=0
 set splitright
 set splitbelow
 set lazyredraw
@@ -50,6 +51,7 @@ Plug 'majutsushi/tagbar'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
+Plug 'machakann/vim-textobj-functioncall'
 Plug 'bkad/CamelCaseMotion'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-after-object'
@@ -61,6 +63,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'naberon/vim-cakehtml'
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 call plug#end()
 
