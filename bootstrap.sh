@@ -6,8 +6,8 @@ DOTFILES=$HOME/dotfiles
 shopt -s dotglob
 
 function symlink_directory_files() {
-  local origin=$(basename $1)
-  local dest=$(basename $2)
+  local origin=$1
+  local dest=$2
 
   for f in $origin/*; do
     if [ ! -e $dest/$(basename $f) ]; then
