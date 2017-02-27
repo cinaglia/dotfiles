@@ -26,6 +26,7 @@ pkgs=(
   reattach-to-user-namespace
   macvim
   hub
+  tig
 )
 
 # Install all brew packages
