@@ -264,7 +264,7 @@ nnoremap <silent> <leader>f :TagbarToggle<cr>
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'filename', 'modified' ],
+  \             [ 'relativepath', 'modified' ],
   \             [ 'tagbar' ] ]
   \ },
   \ 'component': {
