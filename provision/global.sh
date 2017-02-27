@@ -1,6 +1,7 @@
 modules=(
   grunt
   eslint
+  npm-which
 )
 
 modules=$(printf '%s","' "${modules[@]}" | rev | cut -c 4- | rev)
