@@ -305,3 +305,6 @@ nnoremap <leader>i i_<esc>r
 nnoremap <silent> <leader><enter> r<cr>
 
 noremap <leader>a <C-a>
+
+autocmd VimEnter * nnoremap <silent> <c-j> :TmuxNavigateDown<cr>:redraw!<cr>
+autocmd VimEnter * nnoremap <silent> <c-l> :TmuxNavigateRight<cr>:redraw!<cr>
