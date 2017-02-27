@@ -63,7 +63,6 @@ Plug 'tommcdo/vim-exchange'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'naberon/vim-cakehtml'
-Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
 call plug#end()
@@ -188,6 +187,9 @@ silent! if emoji#available()
 endif
 
 let syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
+
+let s:eslint_path = system('npm-which eslint')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
