@@ -307,7 +307,9 @@ nnoremap <leader>i i_<esc>r
 " replace current character with a line break
 nnoremap <silent> <leader><enter> r<cr>
 
+" increment number under cursor
 noremap <leader>a <C-a>
 
+" redraw vim before swiching tmux panes
 autocmd VimEnter * nnoremap <silent> <c-j> :TmuxNavigateDown<cr>:redraw!<cr>
 autocmd VimEnter * nnoremap <silent> <c-l> :TmuxNavigateRight<cr>:redraw!<cr>
