@@ -64,6 +64,7 @@ alias p='python'
 alias t="tmux"
 alias c="cd"
 alias l="ll"
+alias :q="exit"
 
 # Edit hosts file
 alias ho="sudo $EDITOR /etc/hosts"
