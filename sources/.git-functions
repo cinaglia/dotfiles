@@ -1,8 +1,8 @@
 # fbr - checkout git branch
 fbr() {
   local branches branch
-  branches=$(git branch -vv --color=always) &&
-  branch=$(echo "$branches" | fzf-tmux --ansi) &&
+  branches=$(git recent) &&
+  branch=$(echo "$branches" | fzf-tmux --ansi --reverse --no-sort) &&
   git checkout $(echo "$branch" | sed "s/^* //" | awk '{print $1}' | sed "s/.* //")
 }
 
