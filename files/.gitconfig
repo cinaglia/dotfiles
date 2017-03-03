@@ -4,11 +4,7 @@
 
 [alias]
   g   = grep -Ii
-  lg  = log -p
-  st  = status
   l = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   diffr  = "!f() { git diff "$1"^.."$1"; }; f"
   forcepull = "!git fetch ; git reset --hard @{u}"
   purge = "!git fetch | git branch --merged master | grep -v 'master$' | xargs git branch -d ; git fetch -p"
@@ -32,9 +28,6 @@
   added     = yellow
   changed   = green
   untracked = cyan
-
-[diff "exif"]
-  textconv = exiftool
 
 [difftool]
   prompt = false
