@@ -53,6 +53,7 @@ fstash() {
     done
 }
 
+# git add files
 ga() {
   git add $(git ls-files -m | fzf -m);
 }

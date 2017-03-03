@@ -14,20 +14,20 @@ search () {
 
 servers=(`search "$1" | fzf -m --reverse | sed 's/ /\n/g'`);
 if [ $servers ]; then
-    tmux new-window;
-    tmux send-keys -t 1 "ssh ${servers[0]}" C-m;
-    counter=1;
-    for server in "${servers[@]}";
-    do
-        if [ $counter -gt 1 ]; then
-            tmux split-window;
-            tmux send-keys -t "$counter" "ssh $server" C-m;
-            tmux select-layout even-vertical;
-        fi;
-        counter=$((counter + 1));
-    done;
-    if [ ${#servers[@]} -gt 1 ]; then
+  tmux new-window;
+  tmux send-keys -t 1 "ssh ${servers[0]}" C-m;
+  counter=1;
+  for server in "${servers[@]}";
+  do
+    if [ $counter -gt 1 ]; then
+      tmux split-window;
+      tmux send-keys -t "$counter" "ssh $server" C-m;
       tmux select-layout even-vertical;
-      tmux set-window-option synchronize-panes on;
-    fi
+    fi;
+    counter=$((counter + 1));
+  done;
+  if [ ${#servers[@]} -gt 1 ]; then
+    tmux select-layout even-vertical;
+    tmux set-window-option synchronize-panes on;
+  fi
 fi

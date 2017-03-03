@@ -5,7 +5,7 @@ sudo apt-get upgrade
 # Install basic packages
 for pkg in build-essential python-dev software-properties-common python-software-properties vim git
 do
-   sudo apt-get -y install $pkg
+  sudo apt-get -y install $pkg
 done
 
 # Install setuptools and pip
@@ -14,9 +14,9 @@ done
 
 # Install vcprompt
 if [ ! -f /usr/local/bin/vcprompt ]; then
-    wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.1.tar.gz
-    cd /tmp && tar -xzf vcprompt.tar.gz
-    cd /tmp/vcprompt-* && ./configure && make
-    sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
-    rm -rf /tmp/vcprompt*
+   wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.1.tar.gz
+   cd /tmp && tar -xzf vcprompt.tar.gz
+   cd /tmp/vcprompt-* && ./configure && make
+   sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
+   rm -rf /tmp/vcprompt*
 fi
