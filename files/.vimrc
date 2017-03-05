@@ -64,6 +64,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'naberon/vim-cakehtml'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'kana/vim-submode'
 
 call plug#end()
 
@@ -313,3 +314,13 @@ noremap <leader>a <C-a>
 " redraw vim before swiching tmux panes
 autocmd VimEnter * nnoremap <silent> <c-j> :TmuxNavigateDown<cr>:redraw!<cr>
 autocmd VimEnter * nnoremap <silent> <c-l> :TmuxNavigateRight<cr>:redraw!<cr>
+
+" easier pane resizing
+call submode#enter_with('resize', 'n', '', '<leader>H', '<c-w>5<')
+call submode#enter_with('resize', 'n', '', '<leader>L', '<c-w>5>')
+call submode#enter_with('resize', 'n', '', '<leader>J', '<c-w>5-')
+call submode#enter_with('resize', 'n', '', '<leader>K', '<c-w>5+')
+call submode#map('resize', 'n', '', 'H', '<c-w>5<')
+call submode#map('resize', 'n', '', 'L', '<c-w>5>')
+call submode#map('resize', 'n', '', 'J', '<c-w>5-')
+call submode#map('resize', 'n', '', 'K', '<c-w>5+')
