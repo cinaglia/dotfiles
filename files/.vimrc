@@ -320,8 +320,8 @@ call submode#map('resize', 'n', '', 'J', '<c-w>5-')
 call submode#map('resize', 'n', '', 'K', '<c-w>5+')
 
 " sideways
-nnoremap <c-h> :SidewaysLeft<cr>
-nnoremap <c-l> :SidewaysRight<cr>
+nnoremap gh :SidewaysLeft<cr>
+nnoremap gl :SidewaysRight<cr>
 
 " switch
 let g:toggle_semicolon = [{ '^\(.*[^;]\)$': '\1;', '^\(.*\);$': '\1' }]
