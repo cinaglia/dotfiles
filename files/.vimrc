@@ -60,6 +60,9 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'naberon/vim-cakehtml'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/sideways.vim'
+Plug 'AndrewRadev/dsf.vim'
+Plug 'AndrewRadev/multichange.vim'
 Plug 'kana/vim-submode'
 
 call plug#end()
@@ -318,3 +321,7 @@ call submode#map('resize', 'n', '', 'H', '<c-w>5<')
 call submode#map('resize', 'n', '', 'L', '<c-w>5>')
 call submode#map('resize', 'n', '', 'J', '<c-w>5-')
 call submode#map('resize', 'n', '', 'K', '<c-w>5+')
+
+" sideways
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
