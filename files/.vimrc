@@ -30,7 +30,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-projectionist'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
@@ -42,9 +41,6 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-emoji'
 Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
-Plug 'lfilho/cosco.vim'
-Plug 'terryma/vim-expand-region'
-Plug 'justinmk/vim-sneak'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/vim-peekaboo'
 Plug 'itchyny/lightline.vim'
@@ -257,9 +253,6 @@ nnoremap <silent> <leader>z :call ToggleZoom()<cr>
 
 " vim-after-object
 autocmd VimEnter * call after_object#enable('=', ':', ' ')
-
-" tagbar
-nnoremap <silent> <leader>f :TagbarToggle<cr>
 
 " lightline
 let g:lightline = {
