@@ -230,6 +230,7 @@ let g:fzf_files_options =
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 hi ColorColumn ctermbg=235
+hi Visual ctermbg=26
 
 " clear search
 nnoremap <CR> :noh<CR><CR>
