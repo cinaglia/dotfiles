@@ -324,7 +324,7 @@ nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
 
 " switch
-let g:toggle_semicolon = [{ '^\(.*[^;]\)$': '\1;', '^\(.*\);$': '\1' }]
-let g:toggle_comma = [{ '^\(.*[^,]\)$': '\1,', '^\(.*\),$': '\1' }]
+let g:toggle_semicolon = [{ '^\(.*[^;,]\)$': '\1;', '^\(.*\),$': '\1;', '^\(.*\);$': '\1' }]
+let g:toggle_comma = [{ '^\(.*[^;,]\)$': '\1,', '^\(.*\);$': '\1,', '^\(.*\),$': '\1' }]
 nnoremap ,, :call switch#Switch({'definitions': g:toggle_comma})<cr>
 nnoremap ;; :call switch#Switch({'definitions': g:toggle_semicolon})<cr>
