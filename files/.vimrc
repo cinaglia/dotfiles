@@ -63,6 +63,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/sideways.vim'
 Plug 'AndrewRadev/dsf.vim'
 Plug 'AndrewRadev/multichange.vim'
+Plug 'AndrewRadev/switch.vim'
 Plug 'kana/vim-submode'
 
 call plug#end()
@@ -200,10 +201,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
-" Cosco
-autocmd FileType javascript,css nnoremap ;; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css inoremap ;; <c-o>:call cosco#commaOrSemiColon()<CR>
-
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
@@ -325,3 +322,9 @@ call submode#map('resize', 'n', '', 'K', '<c-w>5+')
 " sideways
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
+
+" switch
+let g:toggle_semicolon = [{ '^\(.*[^;]\)$': '\1;', '^\(.*\);$': '\1' }]
+let g:toggle_comma = [{ '^\(.*[^,]\)$': '\1,', '^\(.*\),$': '\1' }]
+nnoremap ,, :call switch#Switch({'definitions': g:toggle_comma})<cr>
+nnoremap ;; :call switch#Switch({'definitions': g:toggle_semicolon})<cr>
