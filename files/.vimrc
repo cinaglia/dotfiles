@@ -145,6 +145,7 @@ set foldlevel=99
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 autocmd Filetype php set cul!
