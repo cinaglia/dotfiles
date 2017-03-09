@@ -140,7 +140,15 @@ nmap gcu <Plug>Commentary<Plug>Commentary
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
-map <leader>n :NERDTreeFind<CR>
+
+function! NERDTreeFindToggle()
+  if exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+    :NERDTreeClose
+  else
+    :NERDTreeFind
+  endif
+endfunction
+nnoremap <silent> <leader>n :call NERDTreeFindToggle()<cr>
 
 " fold
 set foldmethod=indent
