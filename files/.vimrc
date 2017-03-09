@@ -340,3 +340,14 @@ nnoremap ,, :call switch#Switch({'definitions': g:toggle_comma})<cr>
 imap ,, <esc>:call switch#Switch({'definitions': g:toggle_comma})<cr>a
 nnoremap ;; :call switch#Switch({'definitions': g:toggle_semicolon})<cr>
 imap ;; <esc>:call switch#Switch({'definitions': g:toggle_semicolon})<cr>a
+
+" jasmine switch definitions
+autocmd FileType javascript let b:switch_custom_definitions =
+  \ [
+  \   {
+  \     '^\(\s*\)describe\(.*\)': '\1fdescribe\2',
+  \     '^\(\s*\)fdescribe\(.*\)': '\1describe\2',
+  \     '^\(\s*\)it\(.*\)': '\1fit\2',
+  \     '^\(\s*\)fit\(.*\)': '\1it\2',
+  \   },
+  \ ]
