@@ -337,4 +337,6 @@ nnoremap gl :SidewaysRight<cr>
 let g:toggle_semicolon = [{ '^\(.*[^;,]\)$': '\1;', '^\(.*\),$': '\1;', '^\(.*\);$': '\1' }]
 let g:toggle_comma = [{ '^\(.*[^;,]\)$': '\1,', '^\(.*\);$': '\1,', '^\(.*\),$': '\1' }]
 nnoremap ,, :call switch#Switch({'definitions': g:toggle_comma})<cr>
+imap ,, <esc>:call switch#Switch({'definitions': g:toggle_comma})<cr>a
 nnoremap ;; :call switch#Switch({'definitions': g:toggle_semicolon})<cr>
+imap ;; <esc>:call switch#Switch({'definitions': g:toggle_semicolon})<cr>a
