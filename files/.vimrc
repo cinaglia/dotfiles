@@ -143,9 +143,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 function! NERDTreeFindToggle()
   if exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-    :NERDTreeClose
+    execute ":NERDTreeClose"
   else
-    :NERDTreeFind
+    execute ":NERDTreeFind"
   endif
 endfunction
 nnoremap <silent> <leader>n :call NERDTreeFindToggle()<cr>
@@ -351,3 +351,6 @@ autocmd FileType javascript let b:switch_custom_definitions =
   \     '^\(\s*\)fit\(.*\)': '\1it\2',
   \   },
   \ ]
+
+" reopen last buffer
+nmap <c-t> :vs<bar>:b#<CR>
