@@ -1,6 +1,8 @@
 # Install homebrew
 [ ! -f /usr/local/bin/brew ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew tap | grep -q 'universal-ctags' || brew tap universal-ctags/universal-ctags
+
 pkgs=(
   pyenv
   pyenv-virtualenv
@@ -22,7 +24,7 @@ pkgs=(
   httpie
   fzf
   highlight
-  ctags
+  "universal-ctags --HEAD"
   reattach-to-user-namespace
   macvim
   hub
