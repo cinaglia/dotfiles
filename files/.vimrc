@@ -48,6 +48,7 @@ Plug 'majutsushi/tagbar'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-submode'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'machakann/vim-textobj-functioncall'
 Plug 'bkad/CamelCaseMotion'
@@ -65,7 +66,8 @@ Plug 'AndrewRadev/sideways.vim'
 Plug 'AndrewRadev/dsf.vim'
 Plug 'AndrewRadev/multichange.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'kana/vim-submode'
+Plug 'kshenoy/vim-signature'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
