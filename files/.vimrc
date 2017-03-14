@@ -365,3 +365,10 @@ autocmd FileType javascript let b:switch_custom_definitions =
 
 " reopen last buffer
 nmap <c-t> :vs<bar>:b#<CR>
+
+" easymotion
+map <leader> <Plug>(easymotion-prefix)
+map <Leader>l <Plug>(easymotion-bd-jk)
+map  <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>f <Plug>(easymotion-overwin-f)
+nmap s <Plug>(easymotion-overwin-f2)
