@@ -335,6 +335,14 @@ call submode#map('resize', 'n', '', 'K', '<c-w>5+')
 " sideways
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
+autocmd FileType javascript.jsx let b:sideways_definitions = [
+	\   {
+	\     'start':                   '<\k\+\_s\+',
+	\     'end':                     '\s*/\?>',
+	\     'delimited_by_whitespace': 1,
+	\     'brackets':                ['"''', '"'''],
+	\   },
+	\ ]
 
 " switch
 let g:toggle_semicolon = [{ '^\(.*[^;,]\)$': '\1;', '^\(.*\),$': '\1;', '^\(.*\);$': '\1' }]
