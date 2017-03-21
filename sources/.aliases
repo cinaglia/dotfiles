@@ -53,17 +53,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
-alias got="git"
-alias git="hub"
-alias g="git"
-alias gs="git status"
-alias gc="git commit"
-alias gp="git pull"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias gst="git stash"
-alias gpu="git push -u origin head"
-alias gpf="confirm && git push -f origin head"
 alias v="vim"
 alias h="hg"
 alias p='python'
@@ -76,12 +65,27 @@ alias :q="exit"
 alias ho="sudo $EDITOR /etc/hosts"
 
 # Git
+alias got="git"
+alias git="hub"
+alias g="git"
+alias gs="git status"
+alias gc="git commit"
+alias gco="git checkout"
+alias gcm="gco master"
 alias gp="git pull"
 alias gd="git diff"
-alias gc="git checkout"
+alias gl="git l"
+alias gdc="git diff --cached"
+alias gst="git stash"
+alias gpu="git push -u origin head"
+alias gpf="confirm && git push -f origin head"
+alias gpr="git pull-request -o"
 
 # PHP unit
 alias pug="phpunit -v --debug --colors --group"
+
+# Nose
+alias nosetests="nosetests -x --verbose --logging-level=DEBUG"
 
 # fix irssi scrolling
 alias irssi='TERM=screen-256color irssi'
