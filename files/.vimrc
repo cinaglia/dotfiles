@@ -143,6 +143,7 @@ nmap cgc <Plug>ChangeCommentary
 nmap gcu <Plug>Commentary<Plug>Commentary
 
 " nerdtree
+let NERDTreeMapOpenVSplit = '<C-v>'
 map <C-n> :NERDTreeToggle<CR>
 
 function! NERDTreeFindToggle()
