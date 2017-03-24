@@ -117,9 +117,10 @@ set t_ut=
 
 map q: :q
 nnoremap <space> zz
-nnoremap <leader>w :w!<CR>
-nnoremap <leader>q :q!<CR>
-nnoremap <leader>e :e!<CR>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>wq :wq!<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>e :e!<cr>
 
 nnoremap H ^
 nnoremap L $
