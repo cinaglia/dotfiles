@@ -189,6 +189,9 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
+let s:eslint_path = system('npm-which eslint')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['flake8']
@@ -201,10 +204,6 @@ silent! if emoji#available()
   let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
 endif
 
-let syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
-
-let s:eslint_path = system('npm-which eslint')
-let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
