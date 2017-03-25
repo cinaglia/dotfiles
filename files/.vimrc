@@ -210,7 +210,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 " Emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,javascript.jsx EmmetInstall
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
