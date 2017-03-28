@@ -172,10 +172,8 @@ autocmd BufNewFile,BufRead *.thtml setlocal filetype=htmlcake
 
 " 80-character limit
 if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-  match OverLength /\%81v.\+/
+  " set colorcolumn=80
+  let &colorcolumn=join(range(81, 254),",")
 endif
 
 " Gitgutter
