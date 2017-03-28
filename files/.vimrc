@@ -68,6 +68,7 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'easymotion/vim-easymotion'
 Plug 'shofel/syntastic-local-js-checkers'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
