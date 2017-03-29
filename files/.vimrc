@@ -320,6 +320,9 @@ noremap <leader>a <C-a>
 autocmd VimEnter * nnoremap <silent> <c-j> :TmuxNavigateDown<cr>:redraw!<cr>
 autocmd VimEnter * nnoremap <silent> <c-l> :TmuxNavigateRight<cr>:redraw!<cr>
 
+" resize split when window is resized
+:autocmd VimResized * wincmd =
+
 " easier pane resizing
 call submode#enter_with('resize', 'n', '', '<leader>H', '<c-w>5<')
 call submode#enter_with('resize', 'n', '', '<leader>L', '<c-w>5>')
