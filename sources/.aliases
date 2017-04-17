@@ -82,6 +82,9 @@ alias gpu="git push -u origin head"
 alias gpf="confirm && git push -f origin head"
 alias gpr="git pull-request -o"
 
+# SourceTree
+alias st="open -a SourceTree"
+
 # PHP unit
 alias pug="phpunit -v --debug --colors --group"
 
