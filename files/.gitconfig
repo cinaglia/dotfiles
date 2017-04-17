@@ -5,10 +5,12 @@
 [alias]
   g   = grep -Ii
   l = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  f = "!git ls-files | grep -i"
   diffr  = "!f() { git diff "$1"^.."$1"; }; f"
   forcepull = "!git fetch ; git reset --hard @{u}"
   purge = "!git fetch | git branch --merged master | grep -v 'master$' | xargs git branch -d ; git fetch -p"
   recent = "!r() { cur=$(git rev-parse --abbrev-ref HEAD); git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(refname:short)|%(color:bold               green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | sed \"s/m${cur}|/m* ${cur}|/\" | column -ts'|'; }; r"
+  rebranch = "!rb() { sha=$(git log master..head --oneline | tail -1 | cut -d ' ' -f1); git rebase -i ${sha}^; }; rb"
 
 [color]
   ui = auto
