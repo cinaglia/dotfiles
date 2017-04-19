@@ -1,7 +1,9 @@
 local iterm = hs.appfinder.appFromName("iTerm2")
 
 function applicationWatcher(name, event, app)
-    if (event == hs.application.watcher.activated) then
+    if (event == hs.application.watcher.activated or
+        event == hs.application.watcher.launched or
+        event == hs.application.watcher.unhidden) then
         -- hs.alert.show(name);
         if (app == iterm) then
           hs.keycodes.setLayout("U.S.")
