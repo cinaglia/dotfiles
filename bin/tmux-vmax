@@ -1,0 +1,10 @@
+#!/bin/bash
+
+max_height=$(tmux list-windows | grep active | awk -F"[\]x]" '{print $2}')
+height=$(tmux list-panes | grep active | awk -F"[\]x]" '{print $2}')
+new_height=$max_height
+if (( ($max_height - $height) <= 4 )); then
+  new_height=$(($max_height / 2))
+fi
+
+tmux resize-pane -y $new_height
