@@ -176,14 +176,6 @@ if exists('+colorcolumn')
   let &colorcolumn=join(range(81, 254),",")
 endif
 
-" Gitgutter
-silent! if emoji#available()
-  let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-  let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-  let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-  let g:gitgutter_sign_modified_removed = emoji#for('collision')
-endif
-
 " Syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
@@ -363,6 +355,14 @@ autocmd FileType javascript let b:switch_custom_definitions =
   \     '^\(\s*\)fdescribe\(.*\)': '\1describe\2',
   \     '^\(\s*\)it\(.*\)': '\1fit\2',
   \     '^\(\s*\)fit\(.*\)': '\1it\2',
+  \   },
+  \ ]
+
+" gitcommit switch definitions
+autocmd FileType gitcommit let b:switch_custom_definitions =
+  \ [
+  \   {
+  \     '\(\w*-\d*\)': '[\1](https://jira.aweber.io/browse/\1)',
   \   },
   \ ]
 
