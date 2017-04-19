@@ -10,8 +10,11 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 homebrew=/usr/local/bin:/usr/local/sbin
 export PATH=$homebrew:$PATH
 
-# Import scripts under code directory if it exists
-[ -r ~/code ] && export PATH=$PATH:~/code
+# Add bin directory to path
+export PATH=$PATH:~/dotfiles/bin
+
+# Add local bin directory to path if it exists
+[ -r ~/bin ] && export PATH=$PATH:~/bin
 
 # Make vim the default editor
 export EDITOR="vim"

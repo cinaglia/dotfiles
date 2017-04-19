@@ -24,7 +24,7 @@ echo "Symlinking files from $DOTFILES/files/ into $HOME.."
 symlink_directory_files $DOTFILES/files $HOME
 
 # Create expected directories
-DIRECTORIES=(workspace code bin)
+DIRECTORIES=(workspace bin)
 echo "Creating directories.."
 for directory in ${DIRECTORIES[@]}; do
   if [ ! -d $HOME/$directory ]; then
