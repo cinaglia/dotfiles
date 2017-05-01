@@ -2,3 +2,4 @@ tags
 .python-version
 .node-version
 .projections.json
+.DS_Store
