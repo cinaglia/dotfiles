@@ -16,7 +16,9 @@ search () {
   fi
 }
 
-servers=(`search "$QUERY" | fzf $FZF_OPTS --reverse | sed 's/ /\n/g'`);
+servers=(`search "$QUERY"`)
+(( ${#servers[@]} > 1 )) && servers=(`printf '%s\n' "${servers[@]}" | fzf $FZF_OPTS --reverse | sed 's/ /\n/g'`);
+
 if [ $servers ]; then
   if [ -z "$FZF_OPTS" ]; then
     ssh ${servers[0]};
