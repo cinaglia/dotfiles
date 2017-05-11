@@ -69,6 +69,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'easymotion/vim-easymotion'
 Plug 'shofel/syntastic-local-js-checkers'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'matze/vim-move'
 
 call plug#end()
 
@@ -375,3 +376,5 @@ map <Leader>l <Plug>(easymotion-bd-jk)
 map  <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
+
+let g:move_key_modifier = 'C'
