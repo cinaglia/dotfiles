@@ -1,17 +1,38 @@
-local iterm = hs.appfinder.appFromName("iTerm2")
+utils = require('utils')
+config = require('watchers/config')
+window = require('window')
+prefix = require('prefix')
+application = require('watchers/application')
 
-function applicationWatcher(name, event, app)
-    if (event == hs.application.watcher.activated or
-        event == hs.application.watcher.launched or
-        event == hs.application.watcher.unhidden) then
-        -- hs.alert.show(name);
-        if (app == iterm) then
-          hs.keycodes.setLayout("U.S.")
-        else
-          hs.keycodes.setLayout("U.S. International - PC")
-        end
-    end
-end
+-- Initialize stateful modules
+prefix.init('', 'F18')
+config.init()
+application.init()
 
-appWatcher = hs.application.watcher.new(applicationWatcher)
-appWatcher:start()
+-- Hammerspoon mappings
+prefix:bind('', 'c', hs.toggleConsole)
+prefix:bind('', 'q', hs.hints.windowHints)
+prefix:bind('', 'g', hs.grid.toggleShow)
+prefix:bind('', 'r', config.reload)
+
+-- Focus
+prefix:bind('', 'l', window.focusRight)
+prefix:bind('', 'h', window.focusLeft)
+
+-- Snap windows
+prefix:bind('', 's', window.snap)
+prefix:bind('shift', 's', window.snapAll)
+
+-- Resize windows
+prefix:bind('shift', 'l', window.wider)
+prefix:bind('shift', 'h', window.thinner)
+
+-- Most common arrangements (L/M/R 1/3, L2/3)
+prefix:bind('', '1', utils.apply(window.arrange, {'0,0 2x1'}))
+prefix:bind('', '2', utils.apply(window.arrange, {'2,0 2x1'}))
+prefix:bind('', '3', utils.apply(window.arrange, {'4,0 2x1'}))
+prefix:bind('', '4', utils.apply(window.arrange, {'0,0 4x1'}))
+
+-- Next/previous space
+prefix:bind('', 'n', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'right'}))
+prefix:bind('', 'p', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'left'}))
