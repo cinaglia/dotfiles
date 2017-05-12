@@ -10,11 +10,18 @@ local config = require('watchers/config')
 function module.init(mod, key)
   local modal = hs.hotkey.modal.new(mod, key)
 
-  function modal:entered()
-    modal.alertId = hs.alert.show("Prefix Mode", 5)
-    modal.timer = hs.timer.doAfter(5, function()
+  function startTimer(delay)
+    if modal.timer then
+      modal.timer:stop()
+    end
+    modal.timer = hs.timer.doAfter(delay, function()
       modal:exit()
     end)
+  end
+
+  function modal:entered()
+    modal.alertId = hs.alert.show("Prefix Mode", 9999)
+    startTimer(1)
   end
 
   function modal:exited()
@@ -26,11 +33,12 @@ function module.init(mod, key)
     end
   end
 
+  function modal:bindWithChain(mod, key, fn)
+    modal:bind(mod, key, nil, function() fn() startTimer(0.4) end)
+  end
+
   function modal:bindWithExit(mod, key, fn)
-    modal:bind(mod, key, nil, function()
-      fn()
-      module.exit()
-    end)
+    modal:bind(mod, key, nil, function() fn() module.exit() end)
   end
 
   -- Exit out of modal mode
@@ -45,9 +53,13 @@ function module.exit()
   module.modal:exit()
 end
 
-function module.bind(_, mod, key, fn)
+function module.bind(_, mod, key, fn, shouldChain)
   if module.modal then
-    module.modal:bindWithExit(mod, key, fn)
+    if shouldChain then
+      module.modal:bindWithChain(mod, key, fn)
+    else
+      module.modal:bindWithExit(mod, key, fn)
+    end
   end
 end
 

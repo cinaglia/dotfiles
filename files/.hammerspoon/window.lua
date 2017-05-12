@@ -1,10 +1,9 @@
 --
--- Window management. Pretty much stolen from:
--- https://github.com/miromannino/miro-windows-management
+-- Simple window management.
 --
 
-
 local module = {}
+local utils = require('utils')
 
 hs.window.animationDuration = 0.0
 hs.grid.setGrid('6x1')
@@ -37,22 +36,55 @@ module.snapAll = function()
   end
 end
 
--- TODO: Make this smarter
-module.wider = function()
-  local win = hs.window.frontmostWindow()
-  hs.grid.resizeWindowWider(win)
+-- Determine if window is anchored to either the left or right of the screen.
+function getAnchor(cell)
+  local grid = hs.grid.getGrid()
+  if cell.x == 0.0 then
+    return 'left'
+  elseif cell.x + cell.w == grid.w then
+    return'right'
+  end
+  -- Middle windows should be handled as anchored to the left.
+  return 'left'
 end
 
--- TODO: Make this smarter
-module.thinner = function()
+-- Resize window relative to its position on the screen:
+-- Anchored left resizing to the right: wider.
+-- Anchored left, resizing to the left: thinner.
+-- Anchored right, resizing to the right: wider.
+-- Anchored right, resizing to the left: thinner.
+function relativeResize(target)
   local win = hs.window.frontmostWindow()
-  hs.grid.resizeWindowThinner(win)
+  local screen = win:screen()
+  local cell = hs.grid.get(win, screen)
+  local anchor = getAnchor(cell)
+
+  if target == anchor then
+    hs.grid.resizeWindowThinner(win)
+  else
+    hs.grid.resizeWindowWider(win)
+  end
+
+  if anchor == 'right' then
+    hs.grid.pushWindowRight(win)
+  end
 end
 
-module.arrange = function(cell)
+module.resizeRight = utils.apply(relativeResize, {'right'})
+module.resizeLeft = utils.apply(relativeResize, {'left'})
+
+-- Arrange current window with the given cell
+function arrange(cell)
   local win = hs.window.frontmostWindow()
   local screen = win:screen()
   hs.grid.set(win, cell, screen)
 end
+
+-- Predefined common window arragements
+module.arrangeFirstThird     = utils.apply(arrange, {'0,0 2x1'})
+module.arrangeSecondThird    = utils.apply(arrange, {'2,0 2x1'})
+module.arrangeThirdThird     = utils.apply(arrange, {'4,0 2x1'})
+module.arrangeFirstTwoThirds = utils.apply(arrange, {'0,0 4x1'})
+module.arrangeFullScreen     = utils.apply(arrange, {'0,0 6x1'})
 
 return module

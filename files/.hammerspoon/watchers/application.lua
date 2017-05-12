@@ -29,9 +29,9 @@ function onApplicationChange(name, event, app)
 end
 
 module.init = function()
-  updateApplicationEnvironment(hs.application.frontmostApplication())
   module.watcher = hs.application.watcher.new(onApplicationChange)
   module.watcher:start()
+  updateApplicationEnvironment(hs.application.frontmostApplication())
 end
 
 return module

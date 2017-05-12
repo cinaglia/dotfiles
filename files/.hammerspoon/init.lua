@@ -16,23 +16,24 @@ prefix:bind('', 'g', hs.grid.toggleShow)
 prefix:bind('', 'r', config.reload)
 
 -- Focus
-prefix:bind('', 'l', window.focusRight)
-prefix:bind('', 'h', window.focusLeft)
+prefix:bind('', 'l', window.focusRight, true)
+prefix:bind('', 'h', window.focusLeft, true)
 
 -- Snap windows
 prefix:bind('', 's', window.snap)
 prefix:bind('shift', 's', window.snapAll)
 
--- Resize windows
-prefix:bind('shift', 'l', window.wider)
-prefix:bind('shift', 'h', window.thinner)
+-- Resize windows based on their position
+prefix:bind('shift', 'l', window.resizeRight, true)
+prefix:bind('shift', 'h', window.resizeLeft, true)
 
--- Most common arrangements (L/M/R 1/3, L2/3)
-prefix:bind('', '1', utils.apply(window.arrange, {'0,0 2x1'}))
-prefix:bind('', '2', utils.apply(window.arrange, {'2,0 2x1'}))
-prefix:bind('', '3', utils.apply(window.arrange, {'4,0 2x1'}))
-prefix:bind('', '4', utils.apply(window.arrange, {'0,0 4x1'}))
+-- Most common arrangements
+prefix:bind('', '1', window.arrangeFirstThird)
+prefix:bind('', '2', window.arrangeSecondThird)
+prefix:bind('', '3', window.arrangeThirdThird)
+prefix:bind('', '4', window.arrangeFirstTwoThirds)
+prefix:bind('', 'f', window.arrangeFullScreen)
 
 -- Next/previous space
-prefix:bind('', 'n', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'right'}))
-prefix:bind('', 'p', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'left'}))
+prefix:bind('', 'n', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'right'}), true)
+prefix:bind('', 'p', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'left'}), true)

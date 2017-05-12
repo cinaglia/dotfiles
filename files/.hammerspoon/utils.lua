@@ -11,7 +11,6 @@ module.apply = function(f, args)
   end
 end
 
-
 -- Add a delay to a given function
 module.delay = function(fn, delay)
   return module.apply(hs.timer.doAfter, {delay, fn})
