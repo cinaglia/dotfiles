@@ -1,8 +1,8 @@
-utils = require('utils')
-config = require('watchers/config')
-window = require('window')
-prefix = require('prefix')
-application = require('watchers/application')
+local apply = require('utils').apply
+local config = require('watchers/config')
+local window = require('window')
+local prefix = require('prefix')
+local application = require('watchers/application')
 
 -- Initialize stateful modules
 prefix.init('', 'F18')
@@ -35,5 +35,5 @@ prefix:bind('', '4', window.arrangeFirstTwoThirds)
 prefix:bind('', 'f', window.arrangeFullScreen)
 
 -- Next/previous space
-prefix:bind('', 'n', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'right'}), true)
-prefix:bind('', 'p', utils.apply(hs.eventtap.keyStroke, {'ctrl', 'left'}), true)
+prefix:bind('', 'n', apply(hs.eventtap.keyStroke, {'ctrl', 'right'}), true)
+prefix:bind('', 'p', apply(hs.eventtap.keyStroke, {'ctrl', 'left'}), true)

@@ -3,7 +3,7 @@
 --
 
 local module = {}
-local utils = require('utils')
+local apply = require('utils').apply
 
 hs.window.animationDuration = 0.0
 hs.grid.setGrid('6x1')
@@ -70,8 +70,8 @@ function relativeResize(target)
   end
 end
 
-module.resizeRight = utils.apply(relativeResize, {'right'})
-module.resizeLeft = utils.apply(relativeResize, {'left'})
+module.resizeRight = apply(relativeResize, 'right')
+module.resizeLeft  = apply(relativeResize, 'left')
 
 -- Arrange current window with the given cell
 function arrange(cell)
@@ -81,10 +81,10 @@ function arrange(cell)
 end
 
 -- Predefined common window arragements
-module.arrangeFirstThird     = utils.apply(arrange, {'0,0 2x1'})
-module.arrangeSecondThird    = utils.apply(arrange, {'2,0 2x1'})
-module.arrangeThirdThird     = utils.apply(arrange, {'4,0 2x1'})
-module.arrangeFirstTwoThirds = utils.apply(arrange, {'0,0 4x1'})
-module.arrangeFullScreen     = utils.apply(arrange, {'0,0 6x1'})
+module.arrangeFirstThird     = apply(arrange, '0,0 2x1')
+module.arrangeSecondThird    = apply(arrange, '2,0 2x1')
+module.arrangeThirdThird     = apply(arrange, '4,0 2x1')
+module.arrangeFirstTwoThirds = apply(arrange, '0,0 4x1')
+module.arrangeFullScreen     = apply(arrange, '0,0 6x1')
 
 return module
