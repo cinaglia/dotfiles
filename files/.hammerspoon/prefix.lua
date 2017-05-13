@@ -6,22 +6,21 @@
 
 local module = {}
 local modal = nil
-local icon = nil
+local overlays = require('overlays')
 
 function module.init(mod, key)
   modal = hs.hotkey.modal.new(mod, key)
-  icon = hs.menubar.new()
 
   function modal:entered()
     modal.isChained = false
     modal:startTimer(1)
-    icon:setTitle('>')
+    overlays.show()
   end
 
   function modal:exited()
     modal.isChained = false
     modal:stopTimer()
-    icon:setTitle('')
+    overlays.hide()
   end
 
   function modal:stopTimer()
@@ -40,6 +39,7 @@ function module.init(mod, key)
   function modal:bindWithChain(mod, key, fn)
     modal:bind(mod, key, nil, function()
       fn()
+      overlays.show()
       modal:startTimer(0.8)
       modal.isChained = true
     end)
@@ -58,7 +58,7 @@ function module.init(mod, key)
     -- Only exit when not in chained mode.
     -- Helpful when hitting <prefix> immediately after a chainable mapping.
     if not modal.isChained then
-      modal.exit()
+      modal:exit()
     end
   end)
 
