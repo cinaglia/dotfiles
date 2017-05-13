@@ -5,70 +5,77 @@
 --
 
 local module = {}
-local config = require('watchers/config')
+local modal = nil
+local icon = nil
 
 function module.init(mod, key)
-  local modal = hs.hotkey.modal.new(mod, key)
+  modal = hs.hotkey.modal.new(mod, key)
+  icon = hs.menubar.new()
 
-  function startTimer(delay)
+  function modal:entered()
+    modal.isChained = false
+    modal:startTimer(1)
+    icon:setTitle('>')
+  end
+
+  function modal:exited()
+    modal.isChained = false
+    modal:stopTimer()
+    icon:setTitle('')
+  end
+
+  function modal:stopTimer()
     if modal.timer then
       modal.timer:stop()
     end
+  end
+
+  function modal:startTimer(delay)
+    modal:stopTimer()
     modal.timer = hs.timer.doAfter(delay, function()
       modal:exit()
     end)
   end
 
-  function modal:entered()
-    modal.alertId = hs.alert.show("Prefix Mode", 9999)
-    startTimer(1)
-  end
-
-  function modal:exited()
-    if modal.alertId then
-      hs.alert.closeSpecific(modal.alertId, 0)
-    end
-    if modal.timer then
-      modal.timer:stop()
-    end
-  end
-
   function modal:bindWithChain(mod, key, fn)
-    modal:bind(mod, key, nil, function() fn() startTimer(0.4) end)
+    modal:bind(mod, key, nil, function()
+      fn()
+      modal:startTimer(0.8)
+      modal.isChained = true
+    end)
   end
 
   function modal:bindWithExit(mod, key, fn)
-    modal:bind(mod, key, nil, function() fn() module.exit() end)
+    modal:bind(mod, key, nil, function()
+      fn()
+      modal:exit()
+    end)
   end
 
   -- Exit out of modal mode
-  modal:bind('', 'escape', nil, module.exit)
-  modal:bind('', key, nil, module.exit)
+  modal:bind('', 'escape', nil, function() modal:exit() end)
+  modal:bind('', key, nil, function()
+    -- Only exit when not in chained mode.
+    -- Helpful when hitting <prefix> immediately after a chainable mapping.
+    if not modal.isChained then
+      modal.exit()
+    end
+  end)
 
-  module.modal = modal
   return modal
 end
 
-function module.exit()
-  module.modal:exit()
-end
-
 function module.bind(_, mod, key, fn, shouldChain)
-  if module.modal then
+  if modal then
     if shouldChain then
-      module.modal:bindWithChain(mod, key, fn)
+      modal:bindWithChain(mod, key, fn)
     else
-      module.modal:bindWithExit(mod, key, fn)
+      modal:bindWithExit(mod, key, fn)
     end
   end
 end
 
-function module.disable()
-  module.modal.k:disable()
-end
-
-function module.enable()
-  module.modal.k:enable()
-end
+function module.disable() modal.k:disable() end
+function module.enable() modal.k:enable() end
 
 return module
