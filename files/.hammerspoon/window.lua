@@ -87,4 +87,28 @@ module.arrangeThirdThird     = apply(arrange, '4,0 2x1')
 module.arrangeFirstTwoThirds = apply(arrange, '0,0 4x1')
 module.arrangeFullScreen     = apply(arrange, '0,0 6x1')
 
+function isFullScreen(grid, cell)
+  return (cell.x == 0 and cell.y == 0 and grid.size == cell.size)
+end
+
+-- Toggle fullscreen while retaining last position
+local lastPositionMap = {}
+module.toggleFullScreen = function()
+  local grid = hs.grid.getGrid()
+  local win = hs.window.frontmostWindow()
+  local screen = win:screen()
+  local cell = hs.grid.get(win, screen)
+  local winId = win:id()
+
+  if isFullScreen(grid, cell) then
+    if lastPositionMap[winId] then
+      arrange(lastPositionMap[winId])
+      lastPositionMap[winId] = nil
+    end
+  else
+    module.arrangeFullScreen()
+    lastPositionMap[winId] = cell
+  end
+end
+
 return module

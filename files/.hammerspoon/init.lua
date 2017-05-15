@@ -33,6 +33,7 @@ prefix:bind('', '2', window.arrangeSecondThird)
 prefix:bind('', '3', window.arrangeThirdThird)
 prefix:bind('', '4', window.arrangeFirstTwoThirds)
 prefix:bind('', 'f', window.arrangeFullScreen)
+prefix:bind('', 'z', window.toggleFullScreen)
 
 -- Next/previous space
 prefix:bind('', 'n', apply(hs.eventtap.keyStroke, {'ctrl', 'right'}), true)
