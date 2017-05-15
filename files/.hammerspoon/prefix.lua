@@ -40,7 +40,7 @@ function module.init(mod, key)
     modal:bind(mod, key, nil, function()
       fn()
       overlays.show()
-      modal:startTimer(0.8)
+      modal:startTimer(0.4)
       modal.isChained = true
     end)
   end
