@@ -6,8 +6,7 @@ sessions=$(
   awk '{print "["NR-1"]", $0}'
 )
 
-target=$(echo "$sessions" | fzf --reverse --exact | awk '{ print $2}') || exit 0
-
-if [ $target ]; then
-  tmux switch-client -t $target
-fi
+echo "$sessions" | fzf --reverse --exact \
+  --header="ctrl-x: Kill Session" \
+  --bind="ctrl-x:execute(echo -n {2} | xargs tmux kill-session -t)+abort" \
+  --bind="enter:execute(echo -n {2} | xargs tmux switch-client -t)+abort"
