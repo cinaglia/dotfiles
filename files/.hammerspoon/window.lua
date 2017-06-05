@@ -85,6 +85,8 @@ module.arrangeFirstThird     = apply(arrange, '0,0 2x1')
 module.arrangeSecondThird    = apply(arrange, '2,0 2x1')
 module.arrangeThirdThird     = apply(arrange, '4,0 2x1')
 module.arrangeFirstTwoThirds = apply(arrange, '0,0 4x1')
+module.arrangeFirstHalf      = apply(arrange, '0,0 3x1')
+module.arrangeSecondHalf     = apply(arrange, '3,0 3x1')
 module.arrangeFullScreen     = apply(arrange, '0,0 6x1')
 
 function isFullScreen(grid, cell)

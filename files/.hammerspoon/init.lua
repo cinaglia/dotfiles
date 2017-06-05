@@ -32,6 +32,8 @@ prefix:bind('', '1', window.arrangeFirstThird)
 prefix:bind('', '2', window.arrangeSecondThird)
 prefix:bind('', '3', window.arrangeThirdThird)
 prefix:bind('', '4', window.arrangeFirstTwoThirds)
+prefix:bind('shift', '1', window.arrangeFirstHalf)
+prefix:bind('shift', '2', window.arrangeSecondHalf)
 prefix:bind('', 'f', window.arrangeFullScreen)
 prefix:bind('', 'z', window.toggleFullScreen)
 
