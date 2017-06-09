@@ -66,6 +66,7 @@ alias ho="sudo $EDITOR /etc/hosts"
 
 # Git
 alias got="git"
+alias gut="git"
 alias git="hub"
 alias g="git"
 alias gs="git status"
