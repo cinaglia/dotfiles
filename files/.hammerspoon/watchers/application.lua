@@ -5,7 +5,7 @@
 local module = {}
 
 local prefix = require('prefix')
-local iterm = hs.appfinder.appFromName("iTerm2")
+local iterm = hs.application.find('iTerm')
 local events = {
   [hs.application.watcher.activated] = true,
   [hs.application.watcher.launched] = true,
