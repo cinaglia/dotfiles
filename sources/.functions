@@ -13,12 +13,20 @@ function md() {
   mkdir -p "$@" && cd "$@"
 }
 
-# Create a new directory and enter it
+function serve_and_open() {
+  /usr/bin/python -m SimpleHTTPServer "$1" &
+  open http://localhost:"$1"
+  fg
+}
+
+# Start a static web server. Optionally pass the directory to be served.
+# If one is not passed, default to the current.
+# `serve 8080`, `serve ./path 8080`
 function serve() {
   if [ "$#" -eq 1 ]; then
-    /usr/bin/python -m SimpleHTTPServer "$1"
+    serve_and_open "$1"
   else
-    pushd "$1"; /usr/bin/python -m SimpleHTTPServer "$2"; popd
+    pushd "$1"; serve_and_open "$2"; popd
   fi
 }
 
