@@ -27,7 +27,7 @@ prefix:bind('shift', 's', window.snapAll)
 prefix:bind('shift', 'l', window.resizeRight, true)
 prefix:bind('shift', 'h', window.resizeLeft, true)
 
--- Most common arrangements
+-- Horizontal arrangements
 prefix:bind('', '1', window.arrangeFirstThird)
 prefix:bind('', '2', window.arrangeSecondThird)
 prefix:bind('', '3', window.arrangeThirdThird)
@@ -36,6 +36,11 @@ prefix:bind('shift', '1', window.arrangeFirstHalf)
 prefix:bind('shift', '2', window.arrangeSecondHalf)
 prefix:bind('', 'f', window.arrangeFullScreen)
 prefix:bind('', 'z', window.toggleFullScreen)
+
+-- Vertical arrangements
+prefix:bind('shift', 'j', window.arrangeBottomHalf)
+prefix:bind('shift', 'k', window.arrangeTopHalf)
+prefix:bind('', 'space', window.arrangeFullHeight)
 
 -- Next/previous space
 prefix:bind('', 'n', apply(hs.eventtap.keyStroke, {'ctrl', 'right'}), true)

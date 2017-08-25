@@ -6,7 +6,7 @@ local module = {}
 local apply = require('utils').apply
 
 hs.window.animationDuration = 0.0
-hs.grid.setGrid('6x1')
+hs.grid.setGrid('6x2')
 hs.grid.setMargins({ x = 0, y = 0 })
 hs.grid.ui.cellColor = {0,0,0,0.25}
 hs.grid.ui.cellStrokeWidth = 1
@@ -80,14 +80,29 @@ function arrange(cell)
   hs.grid.set(win, cell, screen)
 end
 
--- Predefined common window arragements
-module.arrangeFirstThird     = apply(arrange, '0,0 2x1')
-module.arrangeSecondThird    = apply(arrange, '2,0 2x1')
-module.arrangeThirdThird     = apply(arrange, '4,0 2x1')
-module.arrangeFirstTwoThirds = apply(arrange, '0,0 4x1')
-module.arrangeFirstHalf      = apply(arrange, '0,0 3x1')
-module.arrangeSecondHalf     = apply(arrange, '3,0 3x1')
-module.arrangeFullScreen     = apply(arrange, '0,0 6x1')
+-- Arrange a current window vertically
+function arrangeVertically(y, height)
+  local win = hs.window.frontmostWindow()
+  local screen = win:screen()
+  local cell = hs.grid.get(win, screen)
+  arrange(string.format(
+    '%d,%s %dx%s', cell.x, y, cell.w, height
+  ))
+end
+
+-- Horizontal window arragements
+module.arrangeFirstThird     = apply(arrange, '0,0 2x2')
+module.arrangeSecondThird    = apply(arrange, '2,0 2x2')
+module.arrangeThirdThird     = apply(arrange, '4,0 2x2')
+module.arrangeFirstTwoThirds = apply(arrange, '0,0 4x2')
+module.arrangeFirstHalf      = apply(arrange, '0,0 3x2')
+module.arrangeSecondHalf     = apply(arrange, '3,0 3x2')
+module.arrangeFullScreen     = apply(arrange, '0,0 6x2')
+
+-- Vertical window arragements
+module.arrangeTopHalf = apply(arrangeVertically, {'0', '1'})
+module.arrangeBottomHalf = apply(arrangeVertically, {'1', '1'})
+module.arrangeFullHeight = apply(arrangeVertically, {'0', '2'})
 
 function isFullScreen(grid, cell)
   return (cell.x == 0 and cell.y == 0 and grid.size == cell.size)
