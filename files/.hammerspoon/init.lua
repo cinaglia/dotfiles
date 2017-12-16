@@ -49,7 +49,7 @@ prefix:bind('', 'p', apply(hs.eventtap.keyStroke, {'ctrl', 'left'}), true)
 -- Logitech G600 shortcuts
 -- Window arrangements
 hs.hotkey.bind({'cmd', 'alt'}, '1', nil, window.arrangeFirstHalf)
-hs.hotkey.bind({'cmd', 'alt'}, '2', nil, window.arrangeSecondHalf)
+hs.hotkey.bind({'cmd', 'alt'}, '4', nil, window.arrangeSecondHalf)
 -- Scroll left/right
 hs.hotkey.bind({'cmd', 'alt'}, '3', nil, apply(hs.eventtap.scrollWheel, {{1, 0}, {}, 'px'}))
-hs.hotkey.bind({'cmd', 'alt'}, '4', nil, apply(hs.eventtap.scrollWheel, {{-1, 0}, {}, 'px'}))
+hs.hotkey.bind({'cmd', 'alt'}, '6', nil, apply(hs.eventtap.scrollWheel, {{-1, 0}, {}, 'px'}))
