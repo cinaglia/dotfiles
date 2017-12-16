@@ -197,8 +197,13 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 " Emmet
-let g:user_emmet_install_global = 0
 autocmd FileType html,css,javascript.jsx EmmetInstall
+let g:user_emmet_install_global = 0
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
