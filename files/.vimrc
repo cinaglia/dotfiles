@@ -69,6 +69,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'shofel/syntastic-local-js-checkers'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'matze/vim-move'
+Plug 't9md/vim-choosewin'
 
 call plug#end()
 
@@ -384,3 +385,11 @@ vmap ∆ <Plug>MoveBlockDown
 nmap ∆ <Plug>MoveLineDown
 nmap ˚ <Plug>MoveLineUp
 vmap ˚ <Plug>MoveBlockUp
+
+" choose-win
+nmap <leader>q <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
+let g:choosewin_statusline_replace = 0
+let g:choosewin_blink_on_land = 0
+let g:choosewin_color_overlay_current =  { 'cterm': [ 12, 12 ] }
+let g:choosewin_color_overlay =  { 'cterm': [ 8, 8 ] }
