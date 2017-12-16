@@ -22,7 +22,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/Enter-Indent'
 Plug 'flazz/vim-colorschemes'
-Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -132,9 +131,6 @@ nnoremap Y y$
 
 " previous buffer
 nnoremap <leader>T <c-^>
-
-" gundo
-nnoremap <leader>u :GundoToggle<CR>
 
 " vim-commentary
 xmap gc  <Plug>Commentary
