@@ -378,4 +378,9 @@ map  <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 
-let g:move_key_modifier = 'C'
+" vim-move - ⌥ jk
+let g:move_map_keys = 0
+vmap ∆ <Plug>MoveBlockDown
+nmap ∆ <Plug>MoveLineDown
+nmap ˚ <Plug>MoveLineUp
+vmap ˚ <Plug>MoveBlockUp
