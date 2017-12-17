@@ -393,3 +393,12 @@ let g:choosewin_statusline_replace = 0
 let g:choosewin_blink_on_land = 0
 let g:choosewin_color_overlay_current =  { 'cterm': [ 12, 12 ] }
 let g:choosewin_color_overlay =  { 'cterm': [ 8, 8 ] }
+
+" https://cdaddr.com/programming/cursorcolumn--cursorline-slowdown/
+function! CursorPing()
+  set cursorline cursorcolumn
+  redraw
+  sleep 500m
+  set nocursorline nocursorcolumn
+endfunction
+nmap <space><space> :call CursorPing()<CR>
