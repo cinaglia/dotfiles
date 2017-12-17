@@ -82,7 +82,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-set cursorline                  "Highlight current line
+set nocursorline                "Do not highlight current line
 set wildmenu                    "Autocomplete for command menu
 set laststatus=2                "Always show status line"
 
@@ -165,7 +165,6 @@ autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 autocmd Filetype javascript,php,python setlocal ts=4 sts=4 sw=4
-autocmd Filetype php set cul!
 autocmd BufNewFile,BufRead *.thtml setlocal filetype=htmlcake
 
 " 80-character limit
