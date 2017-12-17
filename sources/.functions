@@ -82,3 +82,11 @@ confirm() {
     esac
   done
 }
+
+get_exposed_port() {
+  port_args=""
+  if [ -n "$3" ]; then
+    port_args="--protocol=$3"
+  fi
+  docker-compose port ${port_args} $1 $2 | cut -d: -f2
+}
