@@ -70,6 +70,7 @@ Plug 'shofel/syntastic-local-js-checkers'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'matze/vim-move'
 Plug 't9md/vim-choosewin'
+Plug 'tmhedberg/matchit'
 
 call plug#end()
 
