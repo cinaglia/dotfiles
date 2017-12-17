@@ -121,7 +121,7 @@ map q: :q
 nnoremap <space> zz
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>wq :wq!<cr>
-nnoremap <leader>q :q<cr>
+nnoremap <leader>Q :q<cr>
 nnoremap <leader>e :e!<cr>
 
 nnoremap H ^
