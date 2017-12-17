@@ -5,7 +5,6 @@
 local module = {}
 
 local prefix = require('prefix')
-local iterm = hs.application.find('iTerm')
 local events = {
   [hs.application.watcher.activated] = true,
   [hs.application.watcher.launched] = true,
@@ -13,6 +12,7 @@ local events = {
 }
 
 function updateApplicationEnvironment(app)
+  local iterm = hs.application.find('iTerm')
   if app == iterm then
     hs.keycodes.setLayout('U.S.')
     prefix:disable()
