@@ -13,7 +13,7 @@ function module.init(mod, key)
 
   function modal:entered()
     modal.isChained = false
-    modal:startTimer(1)
+    modal:startTimer(0.4)
     overlays.show()
   end
 
@@ -40,7 +40,7 @@ function module.init(mod, key)
     modal:bind(mod, key, nil, function()
       fn()
       overlays.show()
-      modal:startTimer(0.8)
+      modal:startTimer(0.4)
       modal.isChained = true
     end)
   end
