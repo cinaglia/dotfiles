@@ -48,3 +48,6 @@ eval "$(pyenv virtualenv-init -)"
 
 # nodenv
 eval "$(nodenv init - --no-rehash)"
+
+# rbenv
+eval "$(rbenv init - --no-rehash)"

@@ -7,6 +7,7 @@ pkgs=(
   pyenv
   pyenv-virtualenv
   nodenv
+  rbenv
   ruby
   git
   git-flow

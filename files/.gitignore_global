@@ -1,5 +1,6 @@
 tags
 .python-version
 .node-version
+.ruby-version
 .projections.json
 .DS_Store
