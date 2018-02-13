@@ -1,12 +1,6 @@
-alias s='subl'
-alias please=sudo
 alias dk='cd ~/Desktop/'
 
-# OS related
-alias showhidden='defaults write com.apple.Finder AppleShowAllFiles YES & killall Finder'
-alias hidehidden='defaults write com.apple.Finder AppleShowAllFiles NO  & killall Finder'
-
-# Reload bash profile 
+# Reload bash profile
 alias sb='source ~/.bash_profile'
 
 # Folder Navigation / Directory management
@@ -57,12 +51,7 @@ alias v="vim"
 alias h="hg"
 alias p='python'
 alias t="tmux attach > /dev/null 2>&1 || tmux new-session -s main"
-alias c="cd"
-alias l="ll"
 alias :q="exit"
-
-# Edit hosts file
-alias ho="sudo $EDITOR /etc/hosts"
 
 # Git
 alias got="git"
@@ -83,17 +72,5 @@ alias gpu="git push -u origin head"
 alias gpf="confirm && git push -f origin head"
 alias gpr="git pull-request -o"
 
-# SourceTree
-alias st="open -a SourceTree"
-
-# PHP unit
-alias pug="phpunit -v --debug --colors --group"
-
 # Nose
 alias nosetests="nosetests -x --verbose --logging-level=DEBUG"
-
-# fix irssi scrolling
-alias irssi='TERM=screen-256color irssi'
-
-# brew ctags
-alias ctags="/usr/local/bin/ctags"

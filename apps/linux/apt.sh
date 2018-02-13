@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # Install basic packages
-for pkg in build-essential python-dev software-properties-common python-software-properties vim git
+for pkg in node build-essential python-dev software-properties-common python-software-properties vim git
 do
   sudo apt-get -y install $pkg
 done

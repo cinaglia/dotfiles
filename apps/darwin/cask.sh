@@ -4,19 +4,18 @@ brew tap | grep -q 'caskroom/versions' || brew tap caskroom/versions
 brew tap | grep -q 'caskroom/drivers' || brew tap caskroom/drivers
 
 casks=(
-  bettertouchtool
-  alfred
-  dropbox
   1password
-  sizeup
+  alfred
+  bettertouchtool
+  docker
+  google-backup-and-sync
   google-chrome
-  google-drive
-  spotify
-  iterm2
-  virtualbox
-  vagrant
   hammerspoon
-  logitech-gaming-software
+  iterm2
+  sketch
+  slack
+  spotify
+  virtualbox
 )
 
 # Install all brew casks

@@ -10,7 +10,7 @@ module.reload = function()
 end
 
 module.watcher = hs.pathwatcher.new(
-  os.getenv('HOME') .. '/dotfiles/files/.hammerspoon/',
+  os.getenv('HOME') .. '/dotfiles/files/hammerspoon/',
   module.reload
 )
 

@@ -4,32 +4,33 @@
 brew tap | grep -q 'universal-ctags' || brew tap universal-ctags/universal-ctags
 
 pkgs=(
-  pyenv
-  pyenv-virtualenv
-  nodenv
-  rbenv
-  ruby
+  "universal-ctags --HEAD"
+  bash-completion
+  colordiff
+  fzf
   git
   git-flow
+  highlight
+  httpie
+  hub
+  jq
+  macvim
   mercurial
+  node
+  nodenv
+  pyenv
+  pyenv-virtualenv
+  rbenv
+  reattach-to-user-namespace
+  ruby
+  ssh-copy-id
+  the_silver_searcher
+  tig
   tmux
   tree
   unrar
-  colordiff
-  z
-  bash-completion
-  jq
-  the_silver_searcher
-  ssh-copy-id
   vcprompt
-  httpie
-  fzf
-  highlight
-  "universal-ctags --HEAD"
-  reattach-to-user-namespace
-  macvim
-  hub
-  tig
+  z
 )
 
 # Install all brew packages
