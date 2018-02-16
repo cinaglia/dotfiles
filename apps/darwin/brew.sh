@@ -14,6 +14,7 @@ pkgs=(
   httpie
   hub
   jq
+  mackup
   macvim
   mercurial
   node
