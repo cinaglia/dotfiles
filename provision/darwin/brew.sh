@@ -14,6 +14,7 @@ pkgs=(
   mercurial
   tmux
   tree
+  pstree
   unrar
   colordiff
   z
