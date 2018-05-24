@@ -10,8 +10,10 @@ casks=(
   docker
   google-backup-and-sync
   google-chrome
+  google-cloud-sdk
   hammerspoon
   iterm2
+  karabiner-elements
   sketch
   slack
   spotify

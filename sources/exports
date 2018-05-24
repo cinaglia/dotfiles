@@ -7,11 +7,13 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Fix brew path
-homebrew=/usr/local/bin:/usr/local/sbin
-export PATH=$homebrew:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Add bin directory to path
 export PATH=$PATH:~/dotfiles/bin
+
+# Add cargo to path
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Add local bin directory to path if it exists
 [ -r ~/bin ] && export PATH=$PATH:~/bin
@@ -48,3 +50,9 @@ eval "$(nodenv init - --no-rehash)"
 
 # rbenv
 eval "$(rbenv init - --no-rehash)"
+
+# gcloud
+GCLOUD=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
+[ -r "$GCLOUD" ] && \
+  . "$GCLOUD/completion.bash.inc" && \
+  . "$GCLOUD/path.bash.inc"

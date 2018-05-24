@@ -5,6 +5,7 @@ brew tap | grep -q 'universal-ctags' || brew tap universal-ctags/universal-ctags
 
 pkgs=(
   "universal-ctags --HEAD"
+  awscli
   bash-completion
   colordiff
   fzf
@@ -19,6 +20,7 @@ pkgs=(
   mercurial
   node
   nodenv
+  pstree
   pyenv
   pyenv-virtualenv
   rbenv

@@ -71,6 +71,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'matze/vim-move'
 Plug 't9md/vim-choosewin'
 Plug 'tmhedberg/matchit'
+Plug 'prettier/vim-prettier'
 
 call plug#end()
 
@@ -165,7 +166,8 @@ autocmd BufEnter * set updatetime=750
 autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
-autocmd Filetype javascript,php,python setlocal ts=4 sts=4 sw=4
+autocmd Filetype php,python setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.thtml setlocal filetype=htmlcake
 
 " 80-character limit
@@ -225,7 +227,7 @@ nnoremap <silent> <leader>t :Tags<cr>
 nnoremap <silent> <leader>b :BTags<cr>
 nnoremap <silent> <leader>m :Marks<cr>
 nnoremap <silent> <leader>ag :Ag<cr>
-nnoremap <silent> <leader><Leader> :Files<cr>
+nnoremap <silent> <leader><leader> :Files<cr>
 nnoremap <silent> <leader>B :Buffers<cr>
 
 let g:fzf_files_options =
@@ -374,7 +376,7 @@ nmap <c-t> :vs<bar>:b#<CR>
 
 " easymotion
 map <leader> <Plug>(easymotion-prefix)
-map <Leader>l <Plug>(easymotion-bd-jk)
+map <leader>l <Plug>(easymotion-bd-jk)
 map  <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
@@ -402,3 +404,6 @@ function! CursorPing()
   set nocursorline nocursorcolumn
 endfunction
 nmap <space><space> :call CursorPing()<CR>
+
+" prettier
+nmap <leader>pp <Plug>(Prettier)
