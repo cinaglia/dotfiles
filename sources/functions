@@ -90,3 +90,7 @@ get_exposed_port() {
   fi
   docker-compose port ${port_args} $1 $2 | cut -d: -f2
 }
+
+ipv() {
+  http https://api.ipdata.co/$(dig +short myip.opendns.com @resolver1.opendns.com) | jq 'del(.threat)'
+}
