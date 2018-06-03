@@ -92,5 +92,11 @@ get_exposed_port() {
 }
 
 ipv() {
-  http https://api.ipdata.co/$(dig +short myip.opendns.com @resolver1.opendns.com) | jq 'del(.threat)'
+  if [ "$#" -eq 1 ]; then
+    ip="$1"
+  else
+    ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+  fi
+
+  http "https://api.ipdata.co/$ip"| jq 'del(.threat)'
 }
