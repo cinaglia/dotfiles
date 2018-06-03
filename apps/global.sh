@@ -3,6 +3,7 @@ modules=(
   eslint
   npm-which
   nodemon
+  spoof
 )
 
 modules=$(printf '%s","' "${modules[@]}" | rev | cut -c 4- | rev)
