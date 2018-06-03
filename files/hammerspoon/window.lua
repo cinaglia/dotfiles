@@ -117,11 +117,9 @@ module.toggleFullScreen = function()
   local cell = hs.grid.get(win, screen)
   local winId = win:id()
 
-  if isFullScreen(grid, cell) then
-    if lastPositionMap[winId] then
-      arrange(lastPositionMap[winId])
-      lastPositionMap[winId] = nil
-    end
+  if isFullScreen(grid, cell) and lastPositionMap[winId] then
+    arrange(lastPositionMap[winId])
+    lastPositionMap[winId] = nil
   else
     module.arrangeFullScreen()
     lastPositionMap[winId] = cell
