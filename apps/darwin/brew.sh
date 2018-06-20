@@ -16,7 +16,6 @@ pkgs=(
   hub
   jq
   mackup
-  macvim
   mercurial
   node
   nodenv
@@ -33,6 +32,8 @@ pkgs=(
   tree
   unrar
   vcprompt
+  vim
+  vlc
   z
 )
 
