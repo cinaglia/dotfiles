@@ -2,17 +2,52 @@
 
 # Update apt-get
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 
-# Install basic packages
-for pkg in node build-essential python-dev software-properties-common python-software-properties vim git
-do
-  sudo apt-get -y install $pkg
-done
+pkgs=(
+  build-essential
+  curl
+  git
+  libbz2-dev
+  libffi-dev
+  liblzma-dev
+  libncurses5-dev
+  libncursesw5-dev
+  libreadline-dev
+  libsqlite3-dev
+  libssl-dev
+  llvm
+  make
+  software-properties-common
+  tk-dev
+  vim
+  wget
+  xz-utils
+  zlib1g-dev
+  jq
+  tmux
+)
 
-# Install setuptools and pip
-[ ! -f /usr/local/bin/easy_install ] && /usr/bin/wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python2.7
-[ ! -f /usr/local/bin/pip ] && /usr/bin/wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | sudo python2.7
+# Install packages
+sudo apt-get -y install "${pkgs[@]}"
+
+# Install pyenv
+if [ ! -n "$(command -v pyenv)" ]; then
+  curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+fi
+
+# Instal nodenv
+if [ ! -n "$(command -v nodenv)" ]; then
+  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+  git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
+  pushd ~/.nodenv
+    src/configure && make -C src
+  popd
+fi
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --key-bindings --completion --no-update-rc
 
 # Install vcprompt
 if [ ! -f /usr/local/bin/vcprompt ]; then

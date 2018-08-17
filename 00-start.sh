@@ -1,6 +1,8 @@
 #!/bin/bash
 
-./01-install-apps.sh
-./02-symlink-dotfiles.sh
-./03-install-vim-plugins.sh
-./04-generate-ssh-key.sh
+DOTFILES_DIRECTORY=$(dirname $0)
+
+# Execute scripts following the convention in sequence.
+for s in $DOTFILES_DIRECTORY/0[1-9]*.sh; do
+  bash $s
+done

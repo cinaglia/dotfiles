@@ -7,6 +7,3 @@ APPS_DIRECTORY=$HOME/dotfiles/apps/
 for t in $APPS_DIRECTORY/$OS/*; do
   sh $t
 done
-
-# Install global applications
-sh $APPS_DIRECTORY/global.sh
