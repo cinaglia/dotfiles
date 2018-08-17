@@ -46,11 +46,15 @@ if [ ! -n "$(command -v nodenv)" ]; then
 fi
 
 # Install z
-wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
+if [ ! -z ~/.fzf ]; then
+  wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
+fi
 
 # Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --key-bindings --completion --no-update-rc
+if [ ! -z ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --key-bindings --completion --no-update-rc
+fi
 
 # Install vcprompt
 if [ ! -f /usr/local/bin/vcprompt ]; then
