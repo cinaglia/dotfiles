@@ -45,6 +45,9 @@ if [ ! -n "$(command -v nodenv)" ]; then
   popd
 fi
 
+# Install z
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
+
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc

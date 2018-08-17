@@ -59,3 +59,6 @@ GCLOUD=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
 [ -r "$GCLOUD" ] && \
   . "$GCLOUD/completion.bash.inc" && \
   . "$GCLOUD/path.bash.inc"
+
+# z
+[ -r ~/z.sh ] && . ~/z.sh
