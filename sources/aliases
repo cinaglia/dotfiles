@@ -34,7 +34,7 @@ else # OS X `ls`
 fi
 
 # List all files colorized in long format
-alias ll="ls -la ${colorflag}"
+alias ll="ls -lah ${colorflag}"
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
