@@ -33,7 +33,6 @@ pkgs=(
   unrar
   vcprompt
   vim
-  vlc
   z
 )
 

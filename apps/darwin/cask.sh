@@ -18,6 +18,7 @@ casks=(
   slack
   spotify
   virtualbox
+  vlc
 )
 
 # Install all brew casks
