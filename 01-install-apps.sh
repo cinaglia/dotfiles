@@ -5,5 +5,5 @@ APPS_DIRECTORY=$HOME/dotfiles/apps/
 
 # Install OS-specific applications
 for t in $APPS_DIRECTORY/$OS/*; do
-  sh $t
+  bash $t
 done
