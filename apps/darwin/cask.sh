@@ -19,6 +19,7 @@ casks=(
   kap
   karabiner-elements
   notion
+  postico
   sketch
   slack
   spotify
