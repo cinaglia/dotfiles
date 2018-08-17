@@ -42,6 +42,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -50,7 +51,8 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init - --no-rehash)"
 
 # rbenv
-eval "$(rbenv init - --no-rehash)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+[ -n "$(command -v rbenv)" ] && eval "$(rbenv init - --no-rehash)"
 
 # gcloud
 GCLOUD=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
