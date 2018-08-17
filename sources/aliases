@@ -56,7 +56,7 @@ alias :q="exit"
 # Git
 alias got="git"
 alias gut="git"
-alias git="hub"
+[ -n "$(command -v hub)" ] && alias git="hub"
 alias g="git"
 alias gs="git status"
 alias gc="git commit"
