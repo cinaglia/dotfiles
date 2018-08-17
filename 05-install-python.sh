@@ -13,20 +13,24 @@ get_latest() {
     | tail -1
 }
 
-maybe_install() {
+get_latest_installed() {
   local query=$1
   [[ -z $query ]] && query=$DEFAULT_QUERY
-  local latest_version=$(
-    pyenv versions \
-      | grep -E "^\s*$query" \
-      | sed 's/^\s\+//' \
-      | tail -1
-  )
+  pyenv versions --bare \
+    | grep -E "^\s*$query" \
+    | sed 's/^\s\+//' \
+    | tail -1
+}
 
-  if [[ -z $latest_version ]]; then
-    pyenv install $(get_latest $query)
+maybe_install() {
+  local latest_installed_version=$(get_latest_installed $1)
+
+  if [[ -z $latest_installed_version ]]; then
+    local version=$(get_latest $1)
+    echo "Installing python $version."
+    pyenv install $version
   else
-    echo "Version $latest_version already installed."
+    echo "Version $latest_installed_version already installed."
   fi
 }
 
@@ -39,3 +43,10 @@ fi
 
 maybe_install 2
 maybe_install 3
+
+# Set global python version if not set
+if [ "$(pyenv global)" = "system" ]; then
+  version=$(get_latest_installed 3 | xargs)
+  echo "Setting python ${version} as the default."
+  pyenv global $version
+fi
