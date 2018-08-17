@@ -10,12 +10,15 @@ casks=(
   alfred
   bettertouchtool
   docker
+  firefox
   google-backup-and-sync
   google-chrome
   google-cloud-sdk
   hammerspoon
   iterm2
+  kap
   karabiner-elements
+  notion
   sketch
   slack
   spotify
