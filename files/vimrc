@@ -313,8 +313,8 @@ vnoremap > >gv
 " insert one character and stay in normal mode
 nnoremap <leader>i i_<esc>r
 
-" replace current character with a line break
-nnoremap <silent> <leader><enter> r<cr>
+" find next space and replace it with a line break
+nnoremap <silent> <leader><space> f<space>r<enter>
 
 " increment number under cursor
 noremap <leader>a <C-a>
