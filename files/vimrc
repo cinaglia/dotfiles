@@ -72,6 +72,8 @@ Plug 'matze/vim-move'
 Plug 't9md/vim-choosewin'
 Plug 'tmhedberg/matchit'
 Plug 'prettier/vim-prettier'
+Plug 'ambv/black'
+Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
@@ -176,6 +178,9 @@ if exists('+colorcolumn')
   let &colorcolumn=join(range(81, 254),",")
 endif
 
+" Black
+let g:black_linelength = 79
+
 " Syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
@@ -193,7 +198,6 @@ silent! if emoji#available()
   let g:syntastic_warning_symbol = emoji#for('warning')
   let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
 endif
-
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
