@@ -1,3 +1,5 @@
+#!/bin/bash
+
 modules=(
   grunt
   eslint
