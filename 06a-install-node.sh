@@ -1,6 +1,5 @@
 #!/bin/bash
 
-. $HOME/.bash_profile
 NODENV_ROOT="$(nodenv root)"
 DEFAULT_QUERY="[0-9]"
 
