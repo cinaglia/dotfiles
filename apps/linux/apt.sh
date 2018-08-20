@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Make apt noninteractive
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
 # Update apt-get
 apt-get update
 apt-get upgrade -y
@@ -8,6 +12,7 @@ pkgs=(
   build-essential
   curl
   git
+  jq
   libbz2-dev
   libffi-dev
   liblzma-dev
@@ -17,15 +22,15 @@ pkgs=(
   libsqlite3-dev
   libssl-dev
   llvm
+  locales
   make
   software-properties-common
   tk-dev
+  tmux
   vim
   wget
   xz-utils
   zlib1g-dev
-  jq
-  tmux
 )
 
 # Install packages

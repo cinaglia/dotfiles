@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 DOTFILES_DIRECTORY=$(dirname $0)
 
 # Execute scripts following the convention in sequence.
