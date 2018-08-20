@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Update apt-get
-sudo apt-get update
-sudo apt-get upgrade -y
+apt-get update
+apt-get upgrade -y
 
 pkgs=(
   build-essential
@@ -29,7 +29,7 @@ pkgs=(
 )
 
 # Install packages
-sudo apt-get -y install "${pkgs[@]}"
+apt-get -y install "${pkgs[@]}"
 
 # Install pyenv
 if [ ! -n "$(command -v pyenv)" ]; then
@@ -61,6 +61,6 @@ if [ ! -f /usr/local/bin/vcprompt ]; then
    wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.1.tar.gz
    cd /tmp && tar -xzf vcprompt.tar.gz
    cd /tmp/vcprompt-* && ./configure && make
-   sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
+   cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
    rm -rf /tmp/vcprompt*
 fi
