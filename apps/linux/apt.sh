@@ -36,6 +36,10 @@ pkgs=(
 # Install packages
 apt-get -y install "${pkgs[@]}"
 
+# Generate locale
+locale-gen "en_US.UTF-8"
+update-locale LC_ALL="en_US.UTF-8"
+
 # Install pyenv
 if [ ! -n "$(command -v pyenv)" ]; then
   curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash

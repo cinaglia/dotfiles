@@ -112,13 +112,13 @@ filetype plugin on
 filetype indent on
 
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+silent! set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " =================== Custom =======================
-colorscheme monokain
+silent! colorscheme monokain
 set t_ut=
 
 map q: :q
@@ -283,7 +283,7 @@ let g:lightline = {
 noremap <plug>(slash-after) zz
 
 " camel-case motion
-call camelcasemotion#CreateMotionMappings(',')
+silent! call camelcasemotion#CreateMotionMappings(',')
 
 " vim-fugitive
 noremap <leader>gb :Gblame<cr>
@@ -327,14 +327,14 @@ autocmd VimEnter * nnoremap <silent> <c-l> :TmuxNavigateRight<cr>:redraw!<cr>
 :autocmd VimResized * wincmd =
 
 " easier pane resizing
-call submode#enter_with('resize', 'n', '', '<leader>H', '<c-w>5<')
-call submode#enter_with('resize', 'n', '', '<leader>L', '<c-w>5>')
-call submode#enter_with('resize', 'n', '', '<leader>J', '<c-w>5-')
-call submode#enter_with('resize', 'n', '', '<leader>K', '<c-w>5+')
-call submode#map('resize', 'n', '', 'H', '<c-w>5<')
-call submode#map('resize', 'n', '', 'L', '<c-w>5>')
-call submode#map('resize', 'n', '', 'J', '<c-w>5-')
-call submode#map('resize', 'n', '', 'K', '<c-w>5+')
+silent! call submode#enter_with('resize', 'n', '', '<leader>H', '<c-w>5<')
+silent! call submode#enter_with('resize', 'n', '', '<leader>L', '<c-w>5>')
+silent! call submode#enter_with('resize', 'n', '', '<leader>J', '<c-w>5-')
+silent! call submode#enter_with('resize', 'n', '', '<leader>K', '<c-w>5+')
+silent! call submode#map('resize', 'n', '', 'H', '<c-w>5<')
+silent! call submode#map('resize', 'n', '', 'L', '<c-w>5>')
+silent! call submode#map('resize', 'n', '', 'J', '<c-w>5-')
+silent! call submode#map('resize', 'n', '', 'K', '<c-w>5+')
 
 " sideways
 nnoremap gh :SidewaysLeft<cr>
