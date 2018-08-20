@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -ex
 
 DOTFILES_DIRECTORY=$(dirname $0)
 
