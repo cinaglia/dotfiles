@@ -1,5 +1,6 @@
 #!/bin/bash
 
+. $HOME/.bash_profile
 PYENV_ROOT="$(pyenv root)"
 DEFAULT_QUERY="[0-9]"
 
