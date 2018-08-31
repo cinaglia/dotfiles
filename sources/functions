@@ -98,5 +98,5 @@ ipv() {
     ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
   fi
 
-  http "https://api.ipdata.co/$ip"| jq 'del(.threat)'
+  http "http://ip-api.com/json/$ip" | jq .
 }
