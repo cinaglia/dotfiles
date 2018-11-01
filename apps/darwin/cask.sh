@@ -7,6 +7,7 @@ brew tap | grep -q 'caskroom/drivers' || brew tap caskroom/drivers
 
 casks=(
   1password
+  1password-cli
   alfred
   bettertouchtool
   docker
@@ -18,13 +19,18 @@ casks=(
   iterm2
   kap
   karabiner-elements
+  keybase
+  mactex
   notion
   postico
   sketch
   slack
   spotify
+  telegram
   virtualbox
+  visual-studio-code
   vlc
+  whatsapp
 )
 
 # Install all brew casks
