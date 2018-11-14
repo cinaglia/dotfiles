@@ -13,6 +13,7 @@ pkgs=(
   fzf
   git
   git-flow
+  gpg
   highlight
   httpie
   hub

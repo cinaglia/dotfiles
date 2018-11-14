@@ -1,6 +1,7 @@
 [user]
 	name = Victor Cinaglia
 	email = victorcinaglia@gmail.com
+	signingkey = 2D68FAE898258503
 
 [alias]
   g   = grep -Ii
@@ -42,3 +43,5 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+[commit]
+	gpgsign = true
