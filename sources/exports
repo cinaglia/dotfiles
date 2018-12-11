@@ -74,3 +74,6 @@ export PATH=$PATH:/usr/local/kubebuilder/bin
 
 # gpg
 export GPG_TTY=$(tty)
+
+# mysql-client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"

@@ -22,6 +22,7 @@ casks=(
   keybase
   notion
   postico
+  sequel-pro
   sketch
   slack
   spotify

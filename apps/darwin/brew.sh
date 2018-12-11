@@ -21,6 +21,7 @@ pkgs=(
   jq
   mackup
   mercurial
+  mysql-client
   node
   nodenv
   pstree
