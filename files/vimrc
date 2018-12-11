@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  [ 'NERDTreeToggle','NERDTreeFind' ] }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go'
 Plug 'sheerun/vim-polyglot'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/Enter-Indent'
@@ -28,7 +29,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-projectionist'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
@@ -36,10 +36,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/vim-emoji'
 Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
-Plug 'craigemery/vim-autotag'
 Plug 'junegunn/vim-peekaboo'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
@@ -52,10 +50,6 @@ Plug 'machakann/vim-textobj-functioncall'
 Plug 'bkad/CamelCaseMotion'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-after-object'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'junegunn/vim-slash'
-Plug 'blueyed/vim-diminactive'
-Plug 'tommcdo/vim-exchange'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'naberon/vim-cakehtml'
@@ -67,13 +61,26 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'easymotion/vim-easymotion'
 Plug 'shofel/syntastic-local-js-checkers'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'matze/vim-move'
 Plug 't9md/vim-choosewin'
-Plug 'tmhedberg/matchit'
-Plug 'prettier/vim-prettier'
+Plug 'andymass/vim-matchup'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'ambv/black'
 Plug 'terryma/vim-expand-region'
+Plug 'jeanCarloMachado/vim-toop'
+Plug 'suy/vim-context-commentstring'
+Plug 'rhysd/devdocs.vim'
+
+""" Old plugins.
+""" Will keep them here until I'm sure I won't miss them.
+" Plug 'tpope/vim-projectionist'
+" Plug 'junegunn/vim-emoji'
+" Plug 'craigemery/vim-autotag'
+" Plug 'vim-scripts/ReplaceWithRegister'
+" Plug 'junegunn/vim-slash'
+" Plug 'blueyed/vim-diminactive'
+" Plug 'tommcdo/vim-exchange'
+" Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -89,6 +96,7 @@ set autoread                    "Reload files changed outside vim
 set nocursorline                "Do not highlight current line
 set wildmenu                    "Autocomplete for command menu
 set laststatus=2                "Always show status line"
+set autowrite
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -169,7 +177,7 @@ autocmd FileType python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 autocmd FileType javascript UltiSnipsAddFiletypes javascript-jasmine
 autocmd Filetype php,python setlocal ts=4 sts=4 sw=4
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript,json setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.thtml setlocal filetype=htmlcake
 
 " 80-character limit
@@ -288,10 +296,6 @@ silent! call camelcasemotion#CreateMotionMappings(',')
 " vim-fugitive
 noremap <leader>gb :Gblame<cr>
 
-" tab navigation
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-
 " backspace
 nnoremap <BS> i<BS>
 nnoremap <leader><BS> mx$"_x`x
@@ -367,21 +371,13 @@ autocmd FileType javascript let b:switch_custom_definitions =
   \   },
   \ ]
 
-" gitcommit switch definitions
-autocmd FileType gitcommit let b:switch_custom_definitions =
-  \ [
-  \   {
-  \     '\(\w*-\d*\)': '[\1](https://jira.aweber.io/browse/\1)',
-  \   },
-  \ ]
-
 " reopen last buffer
 nmap <c-t> :vs<bar>:b#<CR>
 
 " easymotion
 map <leader> <Plug>(easymotion-prefix)
 map <leader>l <Plug>(easymotion-bd-jk)
-map  <leader>f <Plug>(easymotion-bd-f)
+map <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 
@@ -411,5 +407,8 @@ nmap <space><space> :call CursorPing()<CR>
 
 " prettier
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
 nmap <leader>pp <Plug>(Prettier)
+
+" toop
+call toop#mapShell('jq .', '<leader>jq')
