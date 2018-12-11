@@ -74,3 +74,7 @@ alias gpr="git pull-request -o"
 
 # Nose
 alias nosetests="nosetests -x --verbose --logging-level=DEBUG"
+
+# Toggle desktop icons
+alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
+alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
