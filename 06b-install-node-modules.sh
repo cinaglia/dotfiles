@@ -7,6 +7,7 @@ modules=(
   nodemon
   npm-which
   spoof
+  yarn
 )
 
 modules=$(printf '%s","' "${modules[@]}" | rev | cut -c 4- | rev)
