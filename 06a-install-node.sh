@@ -44,9 +44,12 @@ fi
 # Install latest node 9.x
 maybe_install 9
 
+# Install latest node 10.x
+maybe_install 10
+
 # Set global node version if not set
 if [ "$(nodenv global)" = "system" ]; then
-  version=$(get_latest_installed 9 | xargs)
+  version=$(get_latest_installed 10 | xargs)
   echo "Setting node ${version} as the default."
   nodenv global $version
 fi

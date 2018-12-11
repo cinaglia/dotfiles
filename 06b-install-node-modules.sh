@@ -15,3 +15,4 @@ not_installed=$(npm list -g --json | jq -r ".dependencies | [\"${modules}\"] - k
 
 # Install all missing modules
 test "$not_installed" && npm install -g ${not_installed[*]}
+nodenv rehash
