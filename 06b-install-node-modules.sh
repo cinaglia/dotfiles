@@ -1,10 +1,11 @@
 #!/bin/bash
 
 modules=(
-  grunt
   eslint
-  npm-which
+  grunt
+  node-gyp
   nodemon
+  npm-which
   spoof
 )
 
