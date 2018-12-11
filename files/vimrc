@@ -195,17 +195,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['flake8']
-
-silent! if emoji#available()
-  hi Error ctermbg=NONE
-  let g:syntastic_error_symbol = emoji#for('no_entry')
-  let g:syntastic_style_error_symbol = emoji#for('exclamation')
-  let g:syntastic_warning_symbol = emoji#for('warning')
-  let g:syntastic_style_warning_symbol = emoji#for('grey_exclamation')
-endif
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
