@@ -13,6 +13,7 @@ pkgs=(
   fzf
   git
   git-flow
+  go
   gpg
   highlight
   httpie
