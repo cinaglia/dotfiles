@@ -20,7 +20,6 @@ casks=(
   kap
   karabiner-elements
   keybase
-  mactex
   notion
   postico
   sketch
