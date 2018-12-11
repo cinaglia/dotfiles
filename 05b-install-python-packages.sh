@@ -2,6 +2,8 @@
 
 modules=(
   black
+  ipython
+  jupyter
 )
 
 pip install "${modules[@]}"
