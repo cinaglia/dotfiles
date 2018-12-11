@@ -412,3 +412,17 @@ nmap <leader>pp <Plug>(Prettier)
 
 " toop
 call toop#mapShell('jq .', '<leader>jq')
+
+" go
+let g:polyglot_disabled = ['go']
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+autocmd FileType go nmap <leader>d <Plug>(go-def)
+autocmd FileType go nmap <leader>ds <Plug>(go-def-vertical)
+autocmd FileType go nmap <leader>gor <Plug>(go-run)
+autocmd FileType go nmap <leader>gob <Plug>(go-build)
+
+" devdocs
+nmap K <Plug>(devdocs-under-cursor)
