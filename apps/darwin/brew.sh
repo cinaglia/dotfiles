@@ -29,6 +29,7 @@ pkgs=(
   pyenv-virtualenv
   rbenv
   reattach-to-user-namespace
+  redis
   ruby
   ssh-copy-id
   the_silver_searcher

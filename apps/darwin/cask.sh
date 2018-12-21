@@ -20,6 +20,8 @@ casks=(
   kap
   karabiner-elements
   keybase
+  minikube
+  ngrok
   notion
   postico
   sequel-pro
@@ -27,10 +29,12 @@ casks=(
   slack
   spotify
   telegram
+  tunnelblick
   virtualbox
   visual-studio-code
   vlc
   whatsapp
+  wifi-explorer
 )
 
 # Install all brew casks
