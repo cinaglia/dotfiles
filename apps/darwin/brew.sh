@@ -19,6 +19,7 @@ pkgs=(
   httpie
   hub
   jq
+  jsonnet
   mackup
   mercurial
   mysql-client
@@ -32,6 +33,7 @@ pkgs=(
   redis
   ruby
   ssh-copy-id
+  terraform
   the_silver_searcher
   tig
   tmux
