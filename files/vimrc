@@ -70,6 +70,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'jeanCarloMachado/vim-toop'
 Plug 'suy/vim-context-commentstring'
 Plug 'rhysd/devdocs.vim'
+Plug 'google/vim-jsonnet'
 
 """ Old plugins.
 """ Will keep them here until I'm sure I won't miss them.
