@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DOTFILES_DIRECTORY=$(dirname $(dirname $0))
+
+# Execute scripts following the convention in sequence.
+script=$(ls "$DOTFILES_DIRECTORY"/*.sh | sed "s|$DOTFILES_DIRECTORY/||g" | fzf)
+
+if [[ -n "$script" ]]; then
+  echo "Running $script.."
+  . $DOTFILES_DIRECTORY/$script
+else
+  echo "No script selected."
+fi
