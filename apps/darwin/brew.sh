@@ -15,6 +15,7 @@ pkgs=(
   git-flow
   go
   gpg
+  grip
   highlight
   httpie
   hub
