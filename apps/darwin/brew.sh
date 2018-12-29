@@ -9,6 +9,7 @@ pkgs=(
   "universal-ctags --HEAD"
   awscli
   bash-completion
+  boz/repo/kail
   colordiff
   fzf
   git
@@ -21,6 +22,7 @@ pkgs=(
   hub
   jq
   jsonnet
+  kubernetes-cli
   mackup
   mercurial
   mysql-client

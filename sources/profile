@@ -17,3 +17,6 @@ done
 
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# kubectl completion
+[ -f /usr/local/bin/kubectl ] && . <(kubectl completion bash)

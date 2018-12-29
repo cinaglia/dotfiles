@@ -12,6 +12,7 @@ casks=(
   bettertouchtool
   docker
   firefox
+  go
   google-backup-and-sync
   google-chrome
   google-cloud-sdk
