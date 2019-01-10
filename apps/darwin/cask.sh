@@ -10,6 +10,7 @@ casks=(
   1password-cli
   alfred
   bettertouchtool
+  chromedriver
   docker
   firefox
   go
