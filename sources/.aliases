@@ -1,21 +1,91 @@
-alias s='subl'
-alias please=sudo
-alias dk='cd ~/Desktop/'
-
-# OS related
-alias showhidden='defaults write com.apple.Finder AppleShowAllFiles YES & killall Finder'
-alias hidehidden='defaults write com.apple.Finder AppleShowAllFiles NO  & killall Finder'
-
-# Reload bash profile 
-alias sb='source ~/.bash_profile'
+# Shortcuts
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias vi='vim'
 
 # Folder Navigation / Directory management
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ....='cd ../../../..'
 alias ~="cd ~"
-alias -- -="cd -"
+
+# Control grep command output
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Grep processes running
+alias pg='ps -ef | grep '
+
+# Grep history
+alias hgrep='history | grep -i '
+
+# List only directories
+alias lsd='ls -l | grep "^d"'
+
+# List all files colorized in long format
+alias ll="ls -la ${colorflag}"
+
+# Colorize diff output
+alias diff='colordiff'
+
+# Make mount command output pretty
+# alias mount='mount | column -t'
+
+# Time display
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# Do not wait interval 1 second, go fast #
+alias fastping='ping -c 100 -s.2'
+
+# Show open ports
+alias ports='netstat -tulanp'
+
+# display all firewall rules
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+#alias firewall=iptlist
+
+# get web server headers #
+alias header='curl -I'
+
+# find out if remote server supports gzip / mod_deflate or not #
+alias headerc='curl -I --compress'
+
+# All of our servers eth1 is connected to the Internets via vlan / router etc  ##
+alias dnstop='dnstop -l 5 '
+alias vnstat='vnstat -i '
+alias iftop='iftop -i '
+
+# work on wlan0 by default #
+# Only useful for laptop as all servers are without wireless interface
+alias iwconfig='iwconfig wlan0'
+
+## pass options to free ##
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+# set some other defaults ##
+alias df='df -H'
+alias du='du -ch'
+
+# Reload bash profile 
+alias sb='source ~/.bash_profile'
 
 # Edit crontab file
 alias cro="sudo $EDITOR /etc/crontab"
@@ -24,13 +94,7 @@ alias cro="sudo $EDITOR /etc/crontab"
 alias fs="stat -f \"%z bytes\""
 
 # Largest directory sizes
-alias dug='du -h | sort -rn | head -n 20'
-
-# Grep processes running
-alias pg='ps -ef | grep '
-
-# Grep history
-alias hgrep='history | grep -i'
+alias dug='du -h | sort -rn | head -n 10'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -38,12 +102,6 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
 else # OS X `ls`
 	colorflag="-G"
 fi
-
-# List all files colorized in long format
-alias ll="ls -la ${colorflag}"
-
-# List only directories
-alias lsd='ls -l | grep "^d"'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -53,12 +111,7 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
-alias v="vim"
-alias h="hg"
-alias p='python'
 alias t="tmux attach > /dev/null 2>&1 || tmux new-session -s main"
-alias c="cd"
-alias l="ll"
 alias :q="exit"
 
 # Edit hosts file
@@ -67,7 +120,6 @@ alias ho="sudo $EDITOR /etc/hosts"
 # Git
 alias got="git"
 alias gut="git"
-alias git="hub"
 alias g="git"
 alias gs="git status"
 alias gc="git commit"
@@ -82,6 +134,9 @@ alias gst="git stash"
 alias gpu="git push -u origin head"
 alias gpf="confirm && git push -f origin head"
 alias gpr="git pull-request -o"
+
+# Run simpleHttpserver
+alias runserver='/usr/bin/python -m $(python -c 'import sys; print("http.server" if sys.version_info[:2] > (2,7) else "SimpleHTTPServer")') "$1"'
 
 # SourceTree
 alias st="open -a SourceTree"
