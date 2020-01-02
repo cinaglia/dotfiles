@@ -6,14 +6,15 @@ shopt -s nocaseglob
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
-complete -W "NSGlobalDomain" defaults
+# MacOS
+# complete -W "NSGlobalDomain" defaults
 
 # Init brew-specific apps
-brew_prefix=/usr/local
-brew_apps=(etc/bash_completion etc/profile.d/z.sh)
-for app in "${brew_apps[@]}"; do
-  [ -f $brew_prefix/$app ] && . $brew_prefix/$app
-done
+# brew_prefix=/usr/local
+# brew_apps=(etc/bash_completion etc/profile.d/z.sh)
+# for app in "${brew_apps[@]}"; do
+#  [ -f $brew_prefix/$app ] && . $brew_prefix/$app
+# done
 
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

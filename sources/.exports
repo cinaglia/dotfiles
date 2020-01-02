@@ -7,14 +7,18 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Fix brew path
-homebrew=/usr/local/bin:/usr/local/sbin
-export PATH=$homebrew:$PATH
+# MacOS
+# homebrew=/usr/local/bin:/usr/local/sbin
+# export PATH=$homebrew:$PATH
 
 # Add bin directory to path
-export PATH=$PATH:~/dotfiles/bin
+export PATH=$PATH:$HOME/dotfiles/bin
 
 # Add local bin directory to path if it exists
-[ -r ~/bin ] && export PATH=$PATH:~/bin
+[ -r $HOME/bin ] && export PATH=$PATH:$HOME/bin
+
+# Add pyenv bin directory to path if it exists
+[ -r $HOME/.pyenv/bin ] && export PYENV_ROOT="$HOME/.pyenv" && export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -47,7 +51,7 @@ eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 
 # nodenv
-eval "$(nodenv init - --no-rehash)"
+# eval "$(nodenv init - --no-rehash)"
 
 # rbenv
-eval "$(rbenv init - --no-rehash)"
+# eval "$(rbenv init - --no-rehash)"

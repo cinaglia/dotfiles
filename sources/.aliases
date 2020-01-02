@@ -27,6 +27,8 @@ alias lsd='ls -l | grep "^d"'
 # List all files colorized in long format
 alias ll="ls -la ${colorflag}"
 
+alias la='ls -a ${colorflag}'
+
 # Colorize diff output
 alias diff='colordiff'
 
@@ -136,19 +138,19 @@ alias gpf="confirm && git push -f origin head"
 alias gpr="git pull-request -o"
 
 # Run simpleHttpserver
-alias runserver='/usr/bin/python -m $(python -c 'import sys; print("http.server" if sys.version_info[:2] > (2,7) else "SimpleHTTPServer")') "$1"'
+alias runserver="/usr/bin/python -m $(python -c "import sys; print('http.server' if sys.version_info[:2] > (2,7) else 'SimpleHTTPServer')") "$1""
 
 # SourceTree
-alias st="open -a SourceTree"
+# alias st="open -a SourceTree"
 
 # PHP unit
 alias pug="phpunit -v --debug --colors --group"
 
 # Nose
-alias nosetests="nosetests -x --verbose --logging-level=DEBUG"
+# alias nosetests="nosetests -x --verbose --logging-level=DEBUG"
 
 # fix irssi scrolling
-alias irssi='TERM=screen-256color irssi'
+# alias irssi='TERM=screen-256color irssi'
 
 # brew ctags
-alias ctags="/usr/local/bin/ctags"
+# alias ctags="/usr/local/bin/ctags"

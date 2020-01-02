@@ -14,9 +14,5 @@ RESET=$(tput sgr0)
 # Server meta data
 PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w"
 
-# VCS
-PS1=$PS1"\[$WHITE\]\$([[ -n \$(vcprompt 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(vcprompt -f %b%u)"
-
 # New line
 PS1=$PS1"\[$WHITE\]\n\$ \[$RESET\]"
-

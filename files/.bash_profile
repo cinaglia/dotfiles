@@ -1,4 +1,4 @@
-DOTFILES=~/dotfiles
+DOTFILES=$HOME/dotfiles
 
 # Glob dotfiles
 shopt -s dotglob
