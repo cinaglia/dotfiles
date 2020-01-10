@@ -1,5 +1,5 @@
 [ui]
-username = Victor Cinaglia <victorcinaglia@gmail.com>
+username = xingwang <xingwang824@gmail.com>
 ssh = ssh -C
 ignore = ~/.hgignore
 editor = vim
