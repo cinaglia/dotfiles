@@ -12,7 +12,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # export PATH=$homebrew:$PATH
 
 # Add bin directory to path
-export PATH=$PATH:$HOME/dotfiles/bin
+export PATH=$PATH:$HOME/bin
 
 # Add local bin directory to path if it exists
 [ -r $HOME/bin ] && export PATH=$PATH:$HOME/bin
@@ -44,7 +44,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # Kubernetes config
-export KUBECONFIG=/root/openrc/config
+export KUBECONFIG=/root/workspace/config/config
 
 # Increase file limit
 ulimit -n 65536 65536

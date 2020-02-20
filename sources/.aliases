@@ -154,3 +154,11 @@ alias pug="phpunit -v --debug --colors --group"
 
 # brew ctags
 # alias ctags="/usr/local/bin/ctags"
+
+# source cloud env
+alias dayun="source ~/workspace/config/dayun-admin-openrc.sh"
+alias 111="source ~/workspace/config/111-admin-openrc.sh"
+
+# source openstack client env
+alias openstackcli="source /opt/openstackcli/bin/activate"
+#
