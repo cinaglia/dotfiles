@@ -78,3 +78,7 @@ alias nosetests="nosetests -x --verbose --logging-level=DEBUG"
 # Toggle desktop icons
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
+
+# Misc
+alias nonascii="perl -lne 'print if /[^[:ascii:]]/'"
+alias dateiso='date -u +"%Y-%m-%dT%H:%M:%SZ"'

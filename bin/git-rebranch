@@ -1,0 +1,15 @@
+#!/bin/bash
+
+BRANCH=$1
+BRANCH="${BRANCH:-main}"
+if [ -z "`git show-ref refs/heads/$BRANCH`" ]; then
+  BRANCH=master
+fi
+if [ -z "`git show-ref refs/heads/$BRANCH`" ]; then
+  echo "base branch not found"
+  exit 2
+fi
+
+SHA=$(git log "${BRANCH}..head" --oneline | tail -1 | cut -d ' ' -f1);
+git rebase -i ${SHA}^;
+

@@ -6,6 +6,7 @@
 brew tap | grep -q 'universal-ctags' || brew tap universal-ctags/universal-ctags
 
 pkgs=(
+  "gnu-sed --with-default-names"
   "universal-ctags --HEAD"
   awscli
   bash-completion

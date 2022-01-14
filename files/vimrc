@@ -1,5 +1,4 @@
 set nocompatible
-set autoread
 set timeoutlen=500
 set ttimeoutlen=0
 set splitright
@@ -19,7 +18,7 @@ Plug 'scrooloose/nerdtree', { 'on':  [ 'NERDTreeToggle','NERDTreeFind' ] }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/Enter-Indent'
 Plug 'flazz/vim-colorschemes'
@@ -31,10 +30,16 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
+if has('python3')
+  Plug 'SirVer/ultisnips'
+elseif has('python')
+  Plug 'SirVer/ultisnips', {
+      \   'tag': '3.2',
+      \   'dir': get(g:, 'plug_home', '~/.vim/bundle') . '/ultisnips_py2',
+      \ }
+endif
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
@@ -52,7 +57,6 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-after-object'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'naberon/vim-cakehtml'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/sideways.vim'
 Plug 'AndrewRadev/dsf.vim'
@@ -60,7 +64,6 @@ Plug 'AndrewRadev/multichange.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'easymotion/vim-easymotion'
-Plug 'shofel/syntastic-local-js-checkers'
 Plug 'matze/vim-move'
 Plug 't9md/vim-choosewin'
 Plug 'andymass/vim-matchup'
@@ -69,19 +72,12 @@ Plug 'ambv/black'
 Plug 'terryma/vim-expand-region'
 Plug 'jeanCarloMachado/vim-toop'
 Plug 'suy/vim-context-commentstring'
-Plug 'rhysd/devdocs.vim'
 Plug 'google/vim-jsonnet'
-
-""" Old plugins.
-""" Will keep them here until I'm sure I won't miss them.
-" Plug 'tpope/vim-projectionist'
-" Plug 'junegunn/vim-emoji'
-" Plug 'craigemery/vim-autotag'
-" Plug 'vim-scripts/ReplaceWithRegister'
-" Plug 'junegunn/vim-slash'
-" Plug 'blueyed/vim-diminactive'
-" Plug 'tommcdo/vim-exchange'
-" Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+Plug 'alexbyk/vim-ultisnips-js-testing'
+Plug 'tpope/vim-abolish'
+Plug 'embear/vim-localvimrc'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -156,6 +152,7 @@ nmap gcu <Plug>Commentary<Plug>Commentary
 
 " nerdtree
 let NERDTreeMapOpenVSplit = '<C-v>'
+let NERDTreeMapOpenSplit = '<C-x>'
 
 function! NERDTreeFindToggle()
   if exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
@@ -165,6 +162,7 @@ function! NERDTreeFindToggle()
   endif
 endfunction
 nnoremap <silent> <leader>n :call NERDTreeFindToggle()<cr>
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " fold
 set foldmethod=indent
@@ -189,15 +187,26 @@ endif
 " Black
 let g:black_linelength = 79
 
-" Syntastic
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
+" " Syntastic
+" let g:syntastic_enable_signs = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'scss', 'css'] }
 " let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_python_checkers = ['flake8']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_python_checkers = ['flake8']
+
+" ALE
+let g:ale_linters = {
+\  'javascript': ['prettier'],
+\}
+
+let g:ale_fixers = {
+\  'javascript': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 1
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -214,9 +223,12 @@ let g:user_emmet_settings = {
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+let g:vim_json_conceal=0
 
 " vim-markdown
+set conceallevel=0
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " FZF mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -234,8 +246,17 @@ nnoremap <silent> <leader>ag :Ag<cr>
 nnoremap <silent> <leader><leader> :Files<cr>
 nnoremap <silent> <leader>B :Buffers<cr>
 
+let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_files_options =
   \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
+
+" command! -bang -nargs=* BTags
+"   \  if &filetype == 'javascript.jsx'
+"   \|   call fzf#vim#buffer_tags(<q-args>, 'jsctags '.shellescape(expand('%'))." -f | sed '/^$/d' | LANG=C sort", <bang>0)
+"   \| else
+"   \|   call fzf#vim#buffer_tags(<q-args>, <bang>0)
+"   \| endif
 
 " Custom background colors
 hi Normal ctermbg=none
@@ -248,7 +269,10 @@ nnoremap <CR> :noh<CR><CR>
 
 " easy edit/reload
 nmap <leader>ev :e $MYVIMRC<CR>
-nmap <leader>sv :so $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR>:LocalVimRC<CR>
+
+" localvimrc
+let g:localvimrc_ask = 0
 
 " pane zoom
 function! ToggleZoom()
@@ -356,10 +380,10 @@ imap ;; <esc>:call switch#Switch({'definitions': g:toggle_semicolon})<cr>a
 autocmd FileType javascript let b:switch_custom_definitions =
   \ [
   \   {
-  \     '^\(\s*\)describe\(.*\)': '\1fdescribe\2',
-  \     '^\(\s*\)fdescribe\(.*\)': '\1describe\2',
-  \     '^\(\s*\)it\(.*\)': '\1fit\2',
-  \     '^\(\s*\)fit\(.*\)': '\1it\2',
+  \     '^\(\s*\)describe\(.*\)': '\1describe.only\2',
+  \     '^\(\s*\)describe.only\(.*\)': '\1describe\2',
+  \     '^\(\s*\)it\(.*\)': '\1it.only\2',
+  \     '^\(\s*\)it.only\(.*\)': '\1it\2',
   \   },
   \ ]
 
@@ -375,10 +399,10 @@ nmap s <Plug>(easymotion-overwin-f2)
 
 " vim-move - ⌥ jk
 let g:move_map_keys = 0
-vmap ∆ <Plug>MoveBlockDown
-nmap ∆ <Plug>MoveLineDown
-nmap ˚ <Plug>MoveLineUp
-vmap ˚ <Plug>MoveBlockUp
+vmap mj <Plug>MoveBlockDown
+nmap mj <Plug>MoveLineDown
+nmap mk <Plug>MoveLineUp
+vmap mk <Plug>MoveBlockUp
 
 " choose-win
 nmap <leader>q <Plug>(choosewin)
@@ -398,15 +422,16 @@ endfunction
 nmap <space><space> :call CursorPing()<CR>
 
 " prettier
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
+let g:prettier#autoformat_config_present = 1
 nmap <leader>pp <Plug>(Prettier)
 
 " toop
 call toop#mapShell('jq .', '<leader>jq')
 
 " go
-let g:polyglot_disabled = ['go']
+" let g:go_fmt_command = "goimports"
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
@@ -418,3 +443,12 @@ autocmd FileType go nmap <leader>gob <Plug>(go-build)
 
 " devdocs
 nmap K <Plug>(devdocs-under-cursor)
+
+" find next non ascii character
+function! NonAscii()
+  execute "normal /\[^\\x00-\\x7F\]\<CR>"
+endfunction
+command! NonAscii call NextNonAscii()
+
+" vim-easy-align
+au FileType markdown vmap <Leader>\| :EasyAlign*<Bar><Enter>"

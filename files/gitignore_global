@@ -4,3 +4,5 @@ tags
 .ruby-version
 .projections.json
 .DS_Store
+.lvimrc
+playground

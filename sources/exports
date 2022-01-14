@@ -9,6 +9,9 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # Fix brew path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
 # Add bin directory to path
 export PATH=$PATH:~/dotfiles/bin
 
@@ -77,3 +80,10 @@ export GPG_TTY=$(tty)
 
 # mysql-client
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# android dev
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools

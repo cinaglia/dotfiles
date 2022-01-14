@@ -1,7 +1,7 @@
 [user]
-	name = Victor Cinaglia
-	email = victorcinaglia@gmail.com
-	signingkey = 2D68FAE898258503
+  name = Victor Cinaglia
+  email = victorcinaglia@gmail.com
+  signingkey = 9B9C0A25C8292BDFB3755D792D68FAE898258503
 
 [alias]
   g   = grep -Ii
@@ -11,7 +11,6 @@
   forcepull = "!git fetch ; git reset --hard @{u}"
   purge = "!git fetch | git branch --merged master | grep -v 'master$' | xargs git branch -d ; git fetch -p"
   recent = "!r() { cur=$(git rev-parse --abbrev-ref HEAD); git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(refname:short)|%(color:bold               green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | sed \"s/m${cur}|/m* ${cur}|/\" | column -ts'|'; }; r"
-  rebranch = "!rb() { sha=$(git log \"${1:-master}..head\" --oneline | tail -1 | cut -d ' ' -f1); git rebase -i ${sha}^; }; rb"
 
 [color]
   ui = auto
@@ -42,6 +41,15 @@
   default = matching
 
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = /Users/victorcinaglia/.gitignore_global
+
 [commit]
-	gpgsign = true
+  gpgsign = true
+
+[gpg]
+  program = /usr/local/MacGPG2/bin/gpg2
+
+[pull]
+  rebase = true
+[url "git@github.com:"]
+  insteadOf = https://github.com/

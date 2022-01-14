@@ -98,5 +98,17 @@ ipv() {
     ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
   fi
 
-  http "http://ip-api.com/json/$ip?fields=262143" | jq .
+  http "http://ip-api.com/json/$ip?fields=262143" --follow | jq .
+}
+
+mktouch() {
+  if [ $# -lt 1 ]; then
+    echo "Missing argument";
+    return 1;
+  fi
+
+  for f in "$@"; do
+    mkdir -p -- "$(dirname -- "$f")"
+    touch -- "$f"
+  done
 }

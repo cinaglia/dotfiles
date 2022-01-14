@@ -1,0 +1,17 @@
+#!/bin/bash
+
+BRANCH=$1
+BRANCH="${BRANCH:-main}"
+if [ -z "`git show-ref refs/heads/$BRANCH`" ]; then
+  BRANCH=master
+fi
+if [ -z "`git show-ref refs/heads/$BRANCH`" ]; then
+  echo "base branch not found"
+  exit 2
+fi
+
+git status --short --branch $*;
+git --no-pager diff -U0 $BRANCH \
+  | grep "^+.*TODO" \
+  | sed "s/^+//" \
+  | git --no-pager grep -nFf - 2> /dev/null

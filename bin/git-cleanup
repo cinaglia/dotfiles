@@ -1,0 +1,16 @@
+#!/bin/bash
+
+BRANCH=main
+if [ -z "`git show-ref refs/heads/$BRANCH`" ]; then
+  BRANCH=master
+fi
+if [ -z "`git show-ref refs/heads/$BRANCH`" ]; then
+  echo "base branch not found"
+  exit 2
+fi
+
+
+git checkout $BRANCH
+git pull
+git remote | xargs -n1 git remote prune
+git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $BRANCH $branch) && [[ $(git cherry $BRANCH $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
